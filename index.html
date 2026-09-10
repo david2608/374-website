@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="./media-slot.js"></script>
+<script src="./liquid-chrome.js"></script>
+<script type="module" src="./jellyfish.js"></script>
+<style>
+:root{--accent:#FF531F;--ink:#222222;--body:#333333;--muted:#C8C8C8;--surface:#FFFFFF;--alt:#F3F3F5;--inverse:#0A0A0A}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--surface);color:var(--body);font-family:'TT Tunnels','Trebuchet MS',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}a:hover{color:var(--accent)}
+jelly-fish{display:block;position:relative;width:100%;height:100%}
+::selection{background:var(--accent);color:#fff}
+@keyframes mqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes pulse{from{transform:scale(1);opacity:.55}to{transform:scale(2.6);opacity:0}}
+@keyframes breathe{from{transform:translate(-50%,-50%) scale(1);opacity:.55}to{transform:translate(-50%,-50%) scale(1.12);opacity:1}}
+@keyframes beat{0%,100%{transform:scale(1);filter:drop-shadow(0 0 5px rgba(209,0,0,.5))}15%,45%{transform:scale(1.2);filter:drop-shadow(0 0 10px rgba(209,0,0,.8))}30%{transform:scale(1)}}
+@keyframes chromeflow{0%{transform:translate3d(-18%,-12%,0) rotate(0deg) scale(1.9)}50%{transform:translate3d(14%,10%,0) rotate(180deg) scale(2.2)}100%{transform:translate3d(-18%,-12%,0) rotate(360deg) scale(1.9)}}
+@keyframes jorbit{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
+@keyframes jfade{0%{opacity:1}10%{opacity:1}21%{opacity:0}79%{opacity:0}90%{opacity:1}100%{opacity:1}}
+@keyframes jrise{0%{transform:translateY(0)}21%{transform:translateY(0)}50%{transform:translateY(32vh)}78%{transform:translateY(32vh);animation-timing-function:ease-out}87%{transform:translateY(0)}100%{transform:translateY(0)}}
+@keyframes jmani{0%,74%{opacity:0;transform:translateY(-50%) translateX(2vw)}81%{opacity:1;transform:translateY(-50%) translateX(0)}92%{opacity:1;transform:translateY(-50%) translateX(0)}98%,100%{opacity:0;transform:translateY(-50%) translateX(2vw)}}
+@keyframes jbubble{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.6}80%{opacity:.4}100%{transform:translateY(-108vh) translateX(2vh);opacity:0}}
+@keyframes jcaption{0%{opacity:0}4%,28%{opacity:1}33%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){[data-jphrase]{opacity:0!important}[data-jphrase]:first-of-type{opacity:1!important;transform:translateZ(0)!important}[data-jstage]{transform:none!important}}
+@media (max-width:900px){[data-jphrase]{font-size:16vh!important}[data-jmani]{display:none!important}}
+@media (max-width:1399px){#railL,#railR{display:none}}
+@keyframes nfloat{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-16px,0)}100%{transform:translate3d(0,0,0)}}
+@keyframes ndrift{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(14px,8px,0)}100%{transform:translate3d(0,0,0)}}
+@media (prefers-reduced-motion:reduce){[data-nshape] *{animation:none!important}}
+@media (max-width:640px){[data-navpanel]{width:100%!important}}
+@media (max-width:1100px){[data-t3dgrid]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:680px){[data-t3dgrid]{grid-template-columns:1fr!important}}
+[data-bento]{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:16px}
+[data-bhero]{grid-column:span 2;grid-row:span 2}
+@media (max-width:960px){[data-bento]{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){[data-bento]{grid-template-columns:1fr}[data-bhero]{grid-column:span 1}}
+@media (prefers-reduced-motion:reduce){[data-mq],[data-anim]{animation:none!important}[data-pin]{transform:none!important}[data-panel]{position:relative!important;height:auto!important;min-height:100vh}}
+@media (max-width:640px){[data-panel]{height:auto!important;min-height:100vh}[data-panel] [data-pin]{min-height:100vh}}
+@media (min-width:640px){[data-fwrap]{min-height:35rem!important}[data-ftop]{margin-bottom:80px!important}[data-fbadge] > div{width:64px!important;height:64px!important}[data-fbadge] > div span{font-size:24px!important}[data-fline]{bottom:136px!important}}
+@media (min-width:900px){[data-voxrail]{display:flex!important}[data-voxbody]{padding-left:clamp(30px,3.6vw,52px)!important}}
+@media (min-width:768px){[data-fwrap]{min-height:40rem!important}[data-ftop]{margin-bottom:0!important}[data-fbottom]{flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:4px!important;margin-top:96px!important;padding:0!important}[data-fgiant]{bottom:128px!important}[data-fbadge]{bottom:80px!important}[data-fbadge] > div{width:96px!important;height:96px!important}[data-fbadge] > div span{font-size:34px!important}}
+</style>
+</helmet>
+<div id="novra" style="overflow-x:clip;background:var(--surface)">
+
+<header data-screen-label="Header" style="position:fixed;top:0;left:0;right:0;z-index:80;background:var(--surface);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px clamp(16px,2vw,28px)">
+  <div style="justify-self:start">
+    <button onClick="{{ toggleMenu }}" aria-label="Open menu" data-fill="left" data-fill-on="var(--surface)" style="position:relative;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;overflow:hidden;border:1px solid color-mix(in srgb,var(--ink) 18%,var(--surface));border-radius:9999px;background:none;color:var(--ink);font:600 18px 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)">
+      <span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:var(--ink);transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span>
+      <span style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:4px;width:16px;height:8px"><span style="{{ bar1 }}"></span><span style="{{ bar2 }}"></span></span>
+      <span style="position:relative;z-index:1;display:block;height:22px;overflow:hidden">
+        <span style="{{ labelSlide }}">
+          <span style="display:block;height:22px;line-height:22px">Menu</span>
+          <span style="display:block;height:22px;line-height:22px">Close</span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <a href="#top" style="justify-self:center;display:inline-flex;align-items:flex-start;text-decoration:none;font:600 22px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.02em">
+    <span style="position:relative;display:inline-block">
+      <span data-brand="" style="display:block;color:color-mix(in srgb,var(--ink) 62%,var(--surface))">NOVRA</span>
+      <span data-brand="" aria-hidden="true" style="position:absolute;inset:0;display:block;color:var(--ink);clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path .5s cubic-bezier(.22,1,.36,1),text-shadow .5s" style-hover="clip-path:polygon(0 0,100% 0,100% 100%,0 100%);text-shadow:0 0 16px color-mix(in srgb,var(--accent) 70%,transparent)">NOVRA</span>
+    </span>
+    <sup style="font-size:10px;letter-spacing:0;color:var(--ink)">®</sup>
+  </a>
+  <div style="justify-self:end">
+    <a href="#contact" data-chrome="" style="position:relative;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 26px;border-radius:9999px;border:2px solid #191919;background:#0a0a0a;color:#fff;font:600 15px 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-decoration:none;overflow:hidden;box-shadow:0 8px 20px -10px rgba(10,10,10,.6);transition:transform .075s" style-hover="color:#fff" style-active="transform:scale(.95)">
+      <liquid-chrome aria-hidden="true" data-chromefill="" base-color="0.039,0.039,0.039" speed="2" amplitude="0.1" style="position:absolute;inset:0;z-index:0;opacity:.8;transition:opacity .5s"></liquid-chrome>
+      <span style="position: relative; z-index: 1; mix-blend-mode: difference; font-size: 18px">Contact</span>
+    </a>
+  </div>
+</header>
+
+<div data-screen-label="Menu overlay" style="{{ navRoot }}">
+  <div onClick="{{ closeMenu }}" style="{{ navScrim }}"></div>
+  <aside data-navpanel="" style="position:absolute;top:0;right:0;height:100%;width:min(720px,100vw);overflow:hidden">
+    <div aria-hidden="true" style="{{ layer1 }}"></div>
+    <div aria-hidden="true" style="{{ layer2 }}"></div>
+    <div aria-hidden="true" style="{{ layer3 }}"></div>
+
+    <div aria-hidden="true" data-nshape="" style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+      <svg viewBox="0 0 400 400" fill="none" style="{{ shape1 }}">
+        <circle cx="80" cy="120" r="40" fill="rgba(255,83,31,.30)" style="animation:nfloat 6s ease-in-out infinite"></circle>
+        <circle cx="300" cy="80" r="62" fill="rgba(255,255,255,.10)" style="animation:nfloat 7.4s ease-in-out .4s infinite"></circle>
+        <circle cx="200" cy="300" r="82" fill="rgba(255,83,31,.14)" style="animation:ndrift 8.2s ease-in-out .8s infinite"></circle>
+        <circle cx="352" cy="282" r="28" fill="rgba(255,255,255,.18)" style="animation:nfloat 5.2s ease-in-out 1.2s infinite"></circle>
+      </svg>
+      <svg viewBox="0 0 400 400" fill="none" style="{{ shape2 }}">
+        <path d="M0 200 Q100 100 200 200 T400 200" stroke="rgba(255,83,31,.35)" stroke-width="58" fill="none" style="animation:ndrift 9s ease-in-out infinite"></path>
+        <path d="M0 288 Q100 188 200 288 T400 288" stroke="rgba(255,255,255,.12)" stroke-width="38" fill="none" style="animation:ndrift 7.2s ease-in-out .5s infinite"></path>
+      </svg>
+      <svg viewBox="0 0 400 400" fill="none" style="{{ shape3 }}">
+        <circle cx="60" cy="60" r="9" fill="rgba(255,255,255,.35)" style="animation:nfloat 5s ease-in-out infinite"></circle>
+        <circle cx="200" cy="60" r="9" fill="rgba(255,83,31,.5)" style="animation:nfloat 5.6s ease-in-out .2s infinite"></circle>
+        <circle cx="340" cy="60" r="9" fill="rgba(255,255,255,.35)" style="animation:nfloat 6.2s ease-in-out .4s infinite"></circle>
+        <circle cx="60" cy="200" r="14" fill="rgba(255,83,31,.4)" style="animation:nfloat 6.6s ease-in-out .6s infinite"></circle>
+        <circle cx="200" cy="200" r="14" fill="rgba(255,255,255,.28)" style="animation:ndrift 7s ease-in-out .8s infinite"></circle>
+        <circle cx="340" cy="200" r="14" fill="rgba(255,83,31,.4)" style="animation:nfloat 5.4s ease-in-out 1s infinite"></circle>
+        <circle cx="60" cy="340" r="11" fill="rgba(255,255,255,.28)" style="animation:nfloat 6s ease-in-out 1.2s infinite"></circle>
+        <circle cx="200" cy="340" r="11" fill="rgba(255,83,31,.35)" style="animation:nfloat 6.8s ease-in-out 1.4s infinite"></circle>
+        <circle cx="340" cy="340" r="11" fill="rgba(255,255,255,.28)" style="animation:ndrift 7.6s ease-in-out 1.6s infinite"></circle>
+      </svg>
+      <svg viewBox="0 0 400 400" fill="none" style="{{ shape4 }}">
+        <path d="M100 100 Q150 50 200 100 Q250 150 200 200 Q150 250 100 200 Q50 150 100 100" fill="rgba(255,83,31,.26)" style="animation:ndrift 8.4s ease-in-out infinite"></path>
+        <path d="M250 200 Q300 150 350 200 Q400 250 350 300 Q300 350 250 300 Q200 250 250 200" fill="rgba(255,255,255,.12)" style="animation:nfloat 7.8s ease-in-out .6s infinite"></path>
+      </svg>
+      <svg viewBox="0 0 400 400" fill="none" style="{{ shape5 }}">
+        <line x1="0" y1="100" x2="300" y2="400" stroke="rgba(255,83,31,.3)" stroke-width="30" style="animation:ndrift 8s ease-in-out infinite"></line>
+        <line x1="100" y1="0" x2="400" y2="300" stroke="rgba(255,255,255,.14)" stroke-width="24" style="animation:ndrift 6.8s ease-in-out .4s infinite"></line>
+        <line x1="200" y1="0" x2="400" y2="200" stroke="rgba(255,83,31,.18)" stroke-width="18" style="animation:ndrift 9.2s ease-in-out .8s infinite"></line>
+      </svg>
+    </div>
+
+    <div style="{{ navBody }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.45)"><span style="color: var(--accent);">//</span>&nbsp;374</span>
+        <button onClick="{{ closeMenu }}" aria-label="Close menu" data-fill="left" data-fill-on="#0a0a0a" style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-radius:9999px;background:transparent;color:#fff;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)">
+          <span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:#fff;transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span>
+          <span style="position:relative;z-index:1;display:block;width:16px;height:16px">
+            <span style="position:absolute;top:7px;left:0;display:block;width:16px;height:2px;background:currentColor;transform:rotate(45deg)"></span>
+            <span style="position:absolute;top:7px;left:0;display:block;width:16px;height:2px;background:currentColor;transform:rotate(-45deg)"></span>
+          </span>
+        </button>
+      </div>
+
+      <ul style="display:flex;flex-direction:column;gap:clamp(2px,.6vw,8px);margin:0;padding:0;list-style:none">
+        <li style="overflow:hidden">
+          <a href="#about" onClick="{{ closeMenu }}" onMouseEnter="{{ hover1 }}" onMouseLeave="{{ hoverOff }}" style="display:flex;align-items:baseline;gap:clamp(12px,1.6vw,22px);padding:clamp(4px,.8vw,10px) 0;color:#fff;text-decoration:none;transition:color .35s,transform .5s cubic-bezier(.22,1,.36,1)" style-hover="color:var(--accent);transform:translateX(14px)">
+            <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.35)">01</span>
+            <span style="{{ item1 }}">About us</span>
+          </a>
+        </li>
+        <li style="overflow:hidden">
+          <a href="#work" onClick="{{ closeMenu }}" onMouseEnter="{{ hover2 }}" onMouseLeave="{{ hoverOff }}" style="display:flex;align-items:baseline;gap:clamp(12px,1.6vw,22px);padding:clamp(4px,.8vw,10px) 0;color:#fff;text-decoration:none;transition:color .35s,transform .5s cubic-bezier(.22,1,.36,1)" style-hover="color:var(--accent);transform:translateX(14px)">
+            <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.35)">02</span>
+            <span style="{{ item2 }}">Our work</span>
+          </a>
+        </li>
+        <li style="overflow:hidden">
+          <a href="#services" onClick="{{ closeMenu }}" onMouseEnter="{{ hover3 }}" onMouseLeave="{{ hoverOff }}" style="display:flex;align-items:baseline;gap:clamp(12px,1.6vw,22px);padding:clamp(4px,.8vw,10px) 0;color:#fff;text-decoration:none;transition:color .35s,transform .5s cubic-bezier(.22,1,.36,1)" style-hover="color:var(--accent);transform:translateX(14px)">
+            <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.35)">03</span>
+            <span style="{{ item3 }}">Services</span>
+          </a>
+        </li>
+        <li style="overflow:hidden">
+          <a href="#process" onClick="{{ closeMenu }}" onMouseEnter="{{ hover4 }}" onMouseLeave="{{ hoverOff }}" style="display:flex;align-items:baseline;gap:clamp(12px,1.6vw,22px);padding:clamp(4px,.8vw,10px) 0;color:#fff;text-decoration:none;transition:color .35s,transform .5s cubic-bezier(.22,1,.36,1)" style-hover="color:var(--accent);transform:translateX(14px)">
+            <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.35)">04</span>
+            <span style="{{ item4 }}">Process</span>
+          </a>
+        </li>
+        <li style="overflow:hidden">
+          <a href="#contact" onClick="{{ closeMenu }}" onMouseEnter="{{ hover5 }}" onMouseLeave="{{ hoverOff }}" style="display:flex;align-items:baseline;gap:clamp(12px,1.6vw,22px);padding:clamp(4px,.8vw,10px) 0;color:#fff;text-decoration:none;transition:color .35s,transform .5s cubic-bezier(.22,1,.36,1)" style-hover="color:var(--accent);transform:translateX(14px)">
+            <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.35)">05</span>
+            <span style="{{ item5 }}">Contact us</span>
+          </a>
+        </li>
+      </ul>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)">
+        <a href="mailto:hello@novra.studio" style="font:600 clamp(15px,1.3vw,18px)/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:#fff;text-decoration:none;transition:color .3s" style-hover="color:var(--accent)">hello@374.studio</a>
+        <div style="display:flex;gap:18px">
+          <a href="#contact" style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.08em;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s" style-hover="color:#fff">Instagram</a>
+          <a href="#contact" style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.08em;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s" style-hover="color:#fff">LinkedIn</a>
+          <a href="#contact" style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.08em;color:rgba(255,255,255,.55);text-decoration:none;transition:color .3s" style-hover="color:#fff">Behance</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div id="railR" style="position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:14px;align-items:center">
+  
+  
+</div>
+
+<section id="top" data-screen-label="Hero" style="position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #FFFFFFEB">
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:10;perspective:2200px;perspective-origin:50% 46%;overflow:hidden;pointer-events:none">
+    <div data-jstage="" style="position:absolute;inset:0;transform-style:preserve-3d;will-change:transform" data-anim="jorbit 20s linear infinite">
+      <span data-jphrase="" style="position:absolute;inset:0;display:grid;place-items:center;font:700 25vh/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.05em;white-space:nowrap;color:var(--ink);opacity:0;transform:rotateY(0deg) translateZ(660px) rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:opacity" data-anim="jfade 20s linear -10s infinite"><span data-anim="jrise 20s linear -10s infinite" style="display:inline-block;will-change:transform"><span style="display:inline-block;transform:scaleX(.82)">KINETIC</span></span></span>
+      <span data-jphrase="" style="position:absolute;inset:0;display:grid;place-items:center;font:700 25vh/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.05em;white-space:nowrap;color:var(--ink);opacity:0;transform:rotateY(72deg) translateZ(660px) rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:opacity" data-anim="jfade 20s linear -26s infinite"><span data-anim="jrise 20s linear -26s infinite" style="display:inline-block;will-change:transform"><span style="display:inline-block;transform:scaleX(.82)">IDENTITY</span></span></span>
+      <span data-jphrase="" style="position:absolute;inset:0;display:grid;place-items:center;font:700 25vh/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.05em;white-space:nowrap;color:var(--ink);opacity:0;transform:rotateY(144deg) translateZ(660px) rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:opacity" data-anim="jfade 20s linear -22s infinite"><span data-anim="jrise 20s linear -22s infinite" style="display:inline-block;will-change:transform"><span style="display:inline-block;transform:scaleX(.82)">MOTION</span></span></span>
+      <span data-jphrase="" style="position:absolute;inset:0;display:grid;place-items:center;font:700 25vh/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.05em;white-space:nowrap;color:var(--ink);opacity:0;transform:rotateY(216deg) translateZ(660px) rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:opacity" data-anim="jfade 20s linear -18s infinite"><span data-anim="jrise 20s linear -18s infinite" style="display:inline-block;will-change:transform"><span style="display:inline-block;transform:scaleX(.82)">CRAFT</span></span></span>
+      <span data-jphrase="" style="position:absolute;inset:0;display:grid;place-items:center;font:700 25vh/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.05em;white-space:nowrap;color:var(--ink);opacity:0;transform:rotateY(288deg) translateZ(660px) rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:opacity" data-anim="jfade 20s linear -14s infinite"><span data-anim="jrise 20s linear -14s infinite" style="display:inline-block;will-change:transform"><span style="display:inline-block;transform:scaleX(.82)">VISION</span></span></span>
+    </div>
+  </div>
+  <span aria-hidden="true" style="position:absolute;bottom:-4vh;left:22%;width:0.9vh;height:0.9vh;border-radius:50%;background:color-mix(in srgb,var(--accent) 34%,transparent);box-shadow:0 0 6px color-mix(in srgb,var(--accent) 30%,transparent);z-index:15" data-anim="jbubble 13s linear 0s infinite"></span>
+  <span aria-hidden="true" style="position:absolute;bottom:-4vh;left:71%;width:1.4vh;height:1.4vh;border-radius:50%;background:color-mix(in srgb,var(--accent) 34%,transparent);box-shadow:0 0 6px color-mix(in srgb,var(--accent) 30%,transparent);z-index:15" data-anim="jbubble 16s linear 4s infinite"></span>
+  <span aria-hidden="true" style="position:absolute;bottom:-4vh;left:58%;width:0.7vh;height:0.7vh;border-radius:50%;background:color-mix(in srgb,var(--accent) 34%,transparent);box-shadow:0 0 6px color-mix(in srgb,var(--accent) 30%,transparent);z-index:15" data-anim="jbubble 11s linear 8s infinite"></span>
+  <span aria-hidden="true" style="position:absolute;bottom:-4vh;left:38%;width:1.1vh;height:1.1vh;border-radius:50%;background:color-mix(in srgb,var(--accent) 34%,transparent);box-shadow:0 0 6px color-mix(in srgb,var(--accent) 30%,transparent);z-index:15" data-anim="jbubble 15s linear 6s infinite"></span>
+  <div style="position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:min(58vh,72vw);height:78vh;z-index:20;pointer-events:none">
+    <x-import component-from-global-scope="jelly-fish" loop="20" hint-size="100%,100%" style="position:absolute;left:0;top:0;right:0;bottom:0;display:block"></x-import>
+  </div>
+  <div data-jmani="" style="position:absolute;right:4vw;top:50%;transform:translateY(-50%);z-index:38;width:min(22vw,280px);text-align:right;pointer-events:none;opacity:0" data-anim="jmani 20s ease-in-out 0s infinite">
+    <p style="margin:0;font:600 12px/1.7 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.1em;color:var(--body)">WE BUILD KINETIC BRANDS AND WEBSITES FOR FOUNDERS WHO REFUSE TO BLEND IN.</p>
+  </div>
+  <div style="position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:40;width:min(60vw,720px);height:34px;text-align:center">
+      <p style="position:absolute;left:0;right:0;margin:0;font:700 12px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--body);opacity:0" data-anim="jcaption 18s ease-in-out 0s infinite">WHERE STRATEGY MEETS MOTION — IDENTITIES BUILT TO MOVE</p>
+      <p style="position:absolute;left:0;right:0;margin:0;font:700 12px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--body);opacity:0" data-anim="jcaption 18s ease-in-out 6s infinite">FLUID SYSTEMS. LIVING TYPE. BRANDS YOU CAN FEEL.</p>
+      <p style="position:absolute;left:0;right:0;margin:0;font:700 12px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--body);opacity:0" data-anim="jcaption 18s ease-in-out 12s infinite">WE DON’T JUST DESIGN — WE SET THINGS IN MOTION.</p>
+  </div>
+  <span data-fade="" data-d="3" style="position:absolute;right:clamp(24px,4vw,48px);bottom:30px;z-index:40;font:400 15px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">(Scroll)</span>
+</section>
+
+<section id="about" data-screen-label="About + Stats" style="padding: 100px 24px">
+  <div style="max-width:1240px;margin:0 auto">
+    <p style="margin:0 0 20px;font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--ink)"><span style="color:var(--accent)">//</span> ABOUT</p>
+    <div style="display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-end;justify-content:space-between">
+      <h2 data-words="" style="margin:0;font:600 clamp(36px,5vw,56px)/1.04 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink);max-width:14ch"><span data-w="" style="display:inline-block">Big</span> <span data-w="" style="display:inline-block">ideas,</span> <span data-w="" style="display:inline-block">built</span> <span data-w="" style="display:inline-block">to</span> <span data-w="" style="display:inline-block">move</span></h2>
+      <div data-fade="" style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;max-width:440px">
+        <p style="margin:0;font:400 17px/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body);text-wrap:pretty"><span style="color:var(--accent);font-weight:600">Strategy first,</span> craft always. We turn sharp positioning into identity systems and websites that flex across every surface your customers touch.</p>
+        <a href="#contact" data-fill="left" data-fill-on="#fff" style="position:relative;display:inline-flex;align-items:center;height:48px;padding:0 24px;overflow:hidden;border:1px solid var(--accent);border-radius:9999px;background:none;color:var(--accent);font:600 15px 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)"><span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:var(--accent);transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span><span style="position:relative;z-index:1">+ Become a Client</span></a>
+      </div>
+    </div>
+
+    <div style="position:relative;height:clamp(420px,46vw,540px);margin:clamp(36px,4.5vw,64px) auto clamp(40px,5vw,72px);max-width:920px">
+      <div data-fade="" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(440px,74vw);aspect-ratio:4/3;border-radius:24px;background:linear-gradient(150deg,#141416,#3A3A42 62%,#6E6E78);box-shadow:0 30px 70px -24px rgba(10,10,10,.4);display:flex;align-items:flex-end;padding:18px">
+        <span style="font:400 12px/1 'SF Mono',ui-monospace,monospace;color:rgba(255,255,255,.6)">case — solstice_reel.mp4</span>
+      </div>
+      <div data-fade="" data-d="1" style="position:absolute;left:2%;top:5%;transform:rotate(-6deg);width:224px;background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;padding:18px;box-shadow:0 18px 44px -18px rgba(10,10,10,.22)">
+        <p style="margin:0 0 10px;font:400 14px/1.45 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">“They move as fast as we do.”</p>
+        <span style="font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Priya N. — CTO, Arc</span>
+      </div>
+      <div data-fade="" data-d="2" style="position:absolute;right:3%;top:10%;transform:rotate(5deg);background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;padding:16px 18px;box-shadow:0 18px 44px -18px rgba(10,10,10,.22);display:flex;align-items:center;gap:10px">
+        <div style="display:flex">
+          <span style="width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:linear-gradient(140deg,#FFC49B,#E2571F)"></span>
+          <span style="width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:linear-gradient(140deg,#9FB6EF,#24408F);margin-left:-8px"></span>
+          <span style="width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:linear-gradient(140deg,#C9D8C4,#40614C);margin-left:-8px"></span>
+        </div>
+        <span style="font:600 13px/1.3 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">Senior team only</span>
+      </div>
+      <div data-fade="" data-d="3" style="position:absolute;left:10%;bottom:3%;transform:rotate(3deg);background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:9999px;padding:12px 20px;box-shadow:0 18px 44px -18px rgba(10,10,10,.22);font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">4.9 ★ founder rating</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+      <div data-fade="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:24px;padding:28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 40px -24px rgba(10,10,10,.16)">
+        <div data-count="" style="font:600 clamp(44px,4.5vw,64px)/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink)">92%</div>
+        <span style="font:400 14px/1.4 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">of clients come back for a second project</span>
+      </div>
+      <div data-fade="" data-d="1" style="background:var(--accent);border-radius:24px;padding:28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+        <span style="position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;color:#fff;font-size:18px">★</span>
+        <div data-count="" style="font:600 clamp(44px,4.5vw,64px)/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:#fff">20+</div>
+        <span style="font:400 14px/1.4 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:rgba(255,255,255,.9)">international design awards and counting</span>
+      </div>
+      <div data-fade="" data-d="2" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:24px;padding:28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 40px -24px rgba(10,10,10,.16)">
+        <div data-count="" style="font:600 clamp(44px,4.5vw,64px)/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink)">5K+</div>
+        <span style="font:400 14px/1.4 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">hours of craft shipped every year</span>
+      </div>
+      <div data-fade="" data-d="3" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:24px;padding:28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 16px 40px -24px rgba(10,10,10,.16)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="position:relative;width:10px;height:10px;display:inline-block">
+            <span data-anim="pulse 1.8s ease-out infinite" style="position:absolute;inset:0;border-radius:50%;background:var(--accent)"></span>
+            <span style="position:absolute;inset:0;border-radius:50%;background:var(--accent)"></span>
+          </span>
+          <span style="font:600 15px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">Available for Work</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font:400 14px/1.4 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Booking Q4 2026</span>
+          <a href="#contact" aria-label="Start a project" data-fill="left" data-fill-on="var(--surface)" style="position:relative;display:grid;place-items:center;width:44px;height:44px;overflow:hidden;border:1px solid color-mix(in srgb,var(--ink) 18%,var(--surface));border-radius:50%;background:none;color:var(--ink);font-size:18px;text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)"><span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:var(--ink);transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span><span style="position:relative;z-index:1">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div data-story="" id="work" data-screen-label="Story scroll" style="position: relative; width: 100%">
+  <section data-panel="" style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:1">
+    <div data-pin="" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.6vw,20px);width:100%;height:100%;padding:clamp(26px,4.5vw,60px) 4vw;background:#0A0A0A;color:#F6F2EB;transform-origin:bottom left;will-change:transform">
+      <media-slot id="ms-story-01-bg" quiet="" placeholder="drop background image or video — jpg / png / svg / mp4 / webm" style="position:absolute;inset:0;z-index:0;display:block"></media-slot>
+      <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.72),rgba(10,10,10,.34) 52%,rgba(10,10,10,.6))"></div>
+      <p style="position:relative;z-index:2;margin: 0; font: 600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #F6F2EB">01 — How we work</p>
+      <div aria-hidden="true" style="position:relative;z-index:2;width:100%;height:1px;background:rgba(246,242,235,.34);flex:0 0 auto"></div>
+      <h2 style="position:relative;z-index:2;margin:0;font:700 min(12vw,19vh)/0.86 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.045em;text-transform:uppercase">Make<br>It<br>Matter</h2>
+      <div aria-hidden="true" style="position:relative;z-index:2;width:100%;height:1px;background:rgba(246,242,235,.34);flex:0 0 auto"></div>
+      <p style="position:relative;z-index:2;margin:0;max-width:50ch;font:400 clamp(15px,1.9vw,28px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-wrap:pretty">Every project starts the same way — a week of hard questions before a single pixel moves. Strategy first, then the craft that makes it undeniable.</p>
+    </div>
+  </section><section data-panel="" style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:2">
+    <div data-pin="" style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.6vw,20px);width:100%;height:100%;padding:clamp(26px,4.5vw,60px) 4vw;background:#CBC700;color:var(--ink);transform-origin:bottom left;transform:rotate(30deg);will-change:transform">
+      <p style="margin:0;font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase">02 — What you get</p>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.28);flex:0 0 auto"></div>
+      <h2 style="margin:0;font:700 min(11vw,17vh)/0.86 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.045em;text-transform:uppercase">Built<br>To<br>Last</h2>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.28);flex:0 0 auto"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,44px)">
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">6 weeks</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Average brand-and-site engagement, from kickoff to launch day.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">100% in-house</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Strategy, design and build by the same three people. No subcontracting.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">Yours to run</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Documented system, editable pages, and a walkthrough so your team owns it.</p>
+        </div>
+      </div>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.28);flex:0 0 auto"></div>
+      <p style="margin:0;max-width:50ch;font:400 clamp(15px,1.9vw,28px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-wrap:pretty">A brand that still holds up after the launch buzz fades — and a site your team can actually keep alive. <a href="#contact" style="color: #000000; text-decoration: none; border-bottom: 1px solid currentColor">Start a project</a></p>
+    </div>
+  </section>
+
+  <section data-panel="" style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:3">
+    <div data-pin="" style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.6vw,20px);width:100%;height:100%;padding:clamp(26px,4.5vw,60px) 4vw;background:#16233F;color:#EDF1F8;transform-origin:bottom left;transform:rotate(30deg);will-change:transform">
+      <p style="margin:0;font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase">03 — What you get</p>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(237,241,248,.32);flex:0 0 auto"></div>
+      <h2 style="margin:0;font:700 min(11vw,17vh)/0.86 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.045em;text-transform:uppercase">Built<br>To<br>Last</h2>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(237,241,248,.32);flex:0 0 auto"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,44px)">
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">6 weeks</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Average brand-and-site engagement, from kickoff to launch day.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">100% in-house</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Strategy, design and build by the same three people. No subcontracting.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">Yours to run</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Documented system, editable pages, and a walkthrough so your team owns it.</p>
+        </div>
+      </div>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(237,241,248,.32);flex:0 0 auto"></div>
+      <p style="margin:0;max-width:50ch;font:400 clamp(15px,1.9vw,28px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-wrap:pretty">A brand that still holds up after the launch buzz fades — and a site your team can actually keep alive. <a href="#contact" style="color:#FF8A5C;text-decoration:none;border-bottom:1px solid currentColor">Start a project</a></p>
+    </div>
+  </section>
+  <section data-panel="" style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:4">
+    <div data-pin="" style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.6vw,20px);width:100%;height:100%;padding:clamp(26px,4.5vw,60px) 4vw;background:#FF531F;color:#1B0B03;transform-origin:bottom left;transform:rotate(30deg);will-change:transform">
+      <p style="margin: 0; font: 600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #F6F2EB">04 — The method</p>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(27,11,3,.4);flex:0 0 auto"></div>
+      <h2 style="margin: 0; font: 700 min(10vw,15vh)/0.86 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: -0.045em; text-transform: uppercase; color: #F6F2EB">Process<br>Over<br>Polish</h2>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(27,11,3,.4);flex:0 0 auto"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,44px)">
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin: 0 0 8px; font: 600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #F6F2EB">Strategy</p>
+          <p style="margin: 0; font: 400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; opacity: .72; text-wrap: pretty; color: #FFFFFF">Positioning, narrative and naming settled before design begins — so nothing gets redecorated later.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin: 0 0 8px; font: 600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #F6F2EB">Craft</p>
+          <p style="margin: 0; font: 400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; opacity: .72; text-wrap: pretty; color: #FFFFFF">Type, motion and layout built in the browser, not faked in a static file.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin: 0 0 8px; font: 600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #F6F2EB">Momentum</p>
+          <p style="margin: 0; font: 400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; opacity: .72; text-wrap: pretty; color: #FFFFFF">Weekly shipped increments. You see the real thing moving from day four.</p>
+        </div>
+      </div>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(27,11,3,.4);flex:0 0 auto"></div>
+      <p style="margin: 0; margin-left: auto; max-width: 46ch; text-align: right; font: 400 clamp(15px,1.7vw,24px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; text-wrap: pretty; color: #F6F2EB">One team, start to finish. No handoffs, no telephone game.</p>
+    </div></section><section data-panel="" style="position:sticky;top:0;height:100vh;overflow:hidden;z-index:5">
+    <div data-pin="" style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.6vw,20px);width:100%;height:100%;padding:clamp(26px,4.5vw,60px) 4vw;background:#D8DEE7;color:var(--ink);transform-origin:bottom left;transform:rotate(30deg);will-change:transform">
+      <p style="margin:0;font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase">05 — What you get</p>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.26);flex:0 0 auto"></div>
+      <h2 style="margin:0;font:700 min(11vw,17vh)/0.86 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.045em;text-transform:uppercase">Built<br>To<br>Last</h2>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.26);flex:0 0 auto"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,44px)">
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">6 weeks</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Average brand-and-site engagement, from kickoff to launch day.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">100% in-house</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Strategy, design and build by the same three people. No subcontracting.</p>
+        </div>
+        <div style="flex:1 1 180px;min-width:170px">
+          <p style="margin:0 0 8px;font:600 13px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase">Yours to run</p>
+          <p style="margin:0;font:400 clamp(13px,1.25vw,16px)/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;opacity:.72;text-wrap:pretty">Documented system, editable pages, and a walkthrough so your team owns it.</p>
+        </div>
+      </div>
+      <div aria-hidden="true" style="width:100%;height:1px;background:rgba(34,34,34,.26);flex:0 0 auto"></div>
+      <p style="margin:0;max-width:50ch;font:400 clamp(15px,1.9vw,28px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-wrap:pretty">A brand that still holds up after the launch buzz fades — and a site your team can actually keep alive. <a href="#contact" style="color: #000000; text-decoration: none; border-bottom: 1px solid currentColor">Start a project</a></p>
+    </div>
+  </section>
+</div>
+
+<section data-flyin="" data-screen-label="Fly-in" style="position: relative; height: 200vh">
+  <div style="position:sticky;top:0;display:flex;height:100vh;align-items:center;justify-content:center">
+    <div style="position:relative;z-index:1;max-width:768px;margin:0 auto;padding:0 24px;text-align:center">
+      <p style="margin:0;font:600 15px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--body)"><span style="color:var(--accent)">//</span> Welcome to <span data-brand="">374 STUDIO</span></p>
+      <h2 style="margin:40px 0 0;font:700 clamp(40px,6vw,72px)/1.05 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink);text-wrap:pretty">Where Every Journey Becomes a Story</h2>
+    </div>
+    <div data-flyer="" style="position:absolute;top:0;left:0;z-index:2;display:flex;height:100%;width:100%;align-items:center;pointer-events:none;will-change:transform,opacity">
+      <div style="position: relative; width: 600px; max-width: none; aspect-ratio: 3/2; flex: none; border-radius: 0px; overflow: hidden; pointer-events: auto">
+        <media-slot id="flyin-media" placeholder="Drop fly-through image / video" style="position:absolute;inset:0"></media-slot>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services" style="padding: 100px 24px">
+  <div style="max-width: 1240px; margin: 0 auto; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; display: flex; gap: clamp(36px,4.5vw,64px); flex-direction: column">
+    <div style="box-sizing: border-box"><p style="margin:0 0 20px;font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--ink)"><span style="color:var(--accent)">//</span> SERVICES</p><div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px">
+      <h2 data-words="" style="margin:0;font:600 clamp(36px,5vw,56px)/1.04 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink)"><span data-w="" style="display:inline-block">Creative</span> <span data-w="" style="display:inline-block">Services</span></h2>
+      <p style="margin:0;max-width:42ch;font:400 16px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body);text-wrap:pretty">Five disciplines, one team. Most engagements combine two or three.</p>
+    </div></div>
+    
+    <div data-t3dgrid="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;perspective:1500px">
+      <article data-glass="" data-d="0" style="height:380px;perspective:1000px">
+        <div data-glassin="" style="position: relative; height: 100%; border-radius: 44px; background-image: linear-gradient(150deg,#FF8A4C,#E22B00 58%,#7A1200); box-shadow: 0 22px 50px -26px rgba(10,10,10,.55); transform-style: preserve-3d; transition: transform .5s ease-in-out,box-shadow .5s ease-in-out">
+          <div style="position: absolute; inset: 0; border-radius: 44px; overflow: hidden">
+            <media-slot id="svc-1" quiet="" placeholder="" style="position: absolute; inset: 0; display: block"></media-slot>
+            <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,.1) 58%,rgba(10,10,10,0))"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 8px; border-radius: 40px; border-bottom: 1px solid rgba(255,255,255,.28); border-left: 1px solid rgba(255,255,255,.28); background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.08)); backdrop-filter: blur(6px); pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,25px)"></div>
+          
+          <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 26px; pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,26px)">
+            <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.86)">01</span>
+            
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <h3 style="margin:0;font:600 clamp(24px,2.4vw,30px)/1.06 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.025em;color:#fff">Web Design</h3>
+              <p style="margin: 0; font: 400 15px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; color: rgba(255,255,255,.88); text-wrap: pretty; width: 100%">Marketing sites and product surfaces engineered for speed and feel — motion that guides attention instead of stealing it.</p>
+              
+            </div>
+          </div>
+        </div>
+      </article>
+      <article data-glass="" data-d="1" style="height:380px;perspective:1000px">
+        <div data-glassin="" style="position: relative; height: 100%; border-radius: 44px; background-image: linear-gradient(150deg,#2C2C31,#141417 62%,#050506); box-shadow: 0 22px 50px -26px rgba(10,10,10,.55); transform-style: preserve-3d; transition: transform .5s ease-in-out,box-shadow .5s ease-in-out">
+          <div style="position:absolute;inset:0;border-radius:44px;overflow:hidden">
+            <media-slot id="svc-2" quiet="" placeholder="" style="position:absolute;inset:0;display:block"></media-slot>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,.1) 58%,rgba(10,10,10,0))"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 8px; border-radius: 40px; border-bottom: 1px solid rgba(255,255,255,.28); border-left: 1px solid rgba(255,255,255,.28); background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.08)); backdrop-filter: blur(6px); pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,25px)"></div>
+          
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:26px;pointer-events:none;transform-style:preserve-3d;transform:translate3d(0,0,26px)">
+            <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.86)">02</span>
+            
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <h3 style="margin:0;font:600 clamp(24px,2.4vw,30px)/1.06 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.025em;color:#fff">Branding</h3>
+              <p style="margin: 0; font: 400 15px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; color: rgba(255,255,255,.88); text-wrap: pretty; width: 100%">Positioning, naming, and identity systems with a spine — built to survive real use, from pitch deck to packaging.</p>
+              
+            </div>
+          </div>
+        </div>
+      </article>
+      <article data-glass="" data-d="2" style="height:380px;perspective:1000px">
+        <div data-glassin="" style="position: relative; height: 100%; border-radius: 44px; background-image: linear-gradient(150deg,#4C6FCB,#1B2C68 58%,#0A1028); box-shadow: 0 22px 50px -26px rgba(10,10,10,.55); transform-style: preserve-3d; transition: transform .5s ease-in-out,box-shadow .5s ease-in-out">
+          <div style="position:absolute;inset:0;border-radius:44px;overflow:hidden">
+            <media-slot id="svc-3" quiet="" placeholder="" style="position:absolute;inset:0;display:block"></media-slot>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,.1) 58%,rgba(10,10,10,0))"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 8px; border-radius: 40px; border-bottom: 1px solid rgba(255,255,255,.28); border-left: 1px solid rgba(255,255,255,.28); background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.08)); backdrop-filter: blur(6px); pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,25px)"></div>
+          
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:26px;pointer-events:none;transform-style:preserve-3d;transform:translate3d(0,0,26px)">
+            <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.86)">03</span>
+            
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <h3 style="margin:0;font:600 clamp(24px,2.4vw,30px)/1.06 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.025em;color:#fff">Graphic Design</h3>
+              <p style="margin: 0; font: 400 15px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; color: rgba(255,255,255,.88); text-wrap: pretty; width: 100%">Campaigns, editorial, and social systems that stay loud and legible at every size — a story frame or a sixteen-sheet.</p>
+              
+            </div>
+          </div>
+        </div>
+      </article>
+      <article data-glass="" data-d="3" style="height:380px;perspective:1000px">
+        <div data-glassin="" style="position: relative; height: 100%; border-radius: 44px; background-image: linear-gradient(150deg,#6E9179,#335A42 56%,#122A1B); box-shadow: 0 22px 50px -26px rgba(10,10,10,.55); transform-style: preserve-3d; transition: transform .5s ease-in-out,box-shadow .5s ease-in-out">
+          <div style="position:absolute;inset:0;border-radius:44px;overflow:hidden">
+            <media-slot id="svc-4" quiet="" placeholder="" style="position:absolute;inset:0;display:block"></media-slot>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,.1) 58%,rgba(10,10,10,0))"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 8px; border-radius: 40px; border-bottom: 1px solid rgba(255,255,255,.28); border-left: 1px solid rgba(255,255,255,.28); background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.08)); backdrop-filter: blur(6px); pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,25px)"></div>
+          
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:26px;pointer-events:none;transform-style:preserve-3d;transform:translate3d(0,0,26px)">
+            <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.86)">04</span>
+            
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <h3 style="margin:0;font:600 clamp(24px,2.4vw,30px)/1.06 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.025em;color:#fff">Packaging Design</h3>
+              <p style="margin: 0; font: 400 15px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; color: rgba(255,255,255,.88); text-wrap: pretty; width: 100%">Structure, print, and finish worked out together, so the thing on shelf matches the thing you signed off on.</p>
+              
+            </div>
+          </div>
+        </div>
+      </article>
+      <article data-glass="" data-d="4" style="height:380px;perspective:1000px">
+        <div data-glassin="" style="position: relative; height: 100%; border-radius: 44px; background-image: linear-gradient(150deg,#D98A3C,#A83F00 56%,#4E1B00); box-shadow: 0 22px 50px -26px rgba(10,10,10,.55); transform-style: preserve-3d; transition: transform .5s ease-in-out,box-shadow .5s ease-in-out">
+          <div style="position:absolute;inset:0;border-radius:44px;overflow:hidden">
+            <media-slot id="svc-5" quiet="" placeholder="" style="position:absolute;inset:0;display:block"></media-slot>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,.1) 58%,rgba(10,10,10,0))"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 8px; border-radius: 40px; border-bottom: 1px solid rgba(255,255,255,.28); border-left: 1px solid rgba(255,255,255,.28); background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.08)); backdrop-filter: blur(6px); pointer-events: none; transform-style: preserve-3d; transform: translate3d(0,0,25px)"></div>
+          
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:26px;pointer-events:none;transform-style:preserve-3d;transform:translate3d(0,0,26px)">
+            <span style="font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.18em;color:rgba(255,255,255,.86)">05</span>
+            
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <h3 style="margin:0;font:600 clamp(24px,2.4vw,30px)/1.06 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.025em;color:#fff">Motion &amp; Video</h3>
+              <p style="margin: 0; font: 400 15px/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; color: rgba(255,255,255,.88); text-wrap: pretty; width: 100%">Kinetic type, product film, and micro-interactions — the layer that makes a brand feel alive everywhere it shows up.</p>
+              
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Logo cloud" style="background: var(--surface); padding: 100px 24px; display: flex; flex-direction: column; gap: clamp(36px,4.5vw,64px)">
+  <div style="max-width:640px;margin:0 auto;text-align:center">
+    <h2 style="margin:0;font:600 clamp(24px,2.6vw,32px)/1.1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink)"><strong data-start="450" data-end="485">Built Together Made to Matter</strong><br data-start="485" data-end="488"></h2>
+    <p style="margin:12px 0 0;font:400 15px/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body);text-wrap:pretty">Partnering with teams to create digital products that are clear, engaging, and built for growth.</p>
+  </div>
+  <div style="margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 100px">
+      <div data-lswap="" data-i="0" aria-label="ASTERA" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 0px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-1" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">LIGA INSURANCE</span>
+      </div>
+      <div data-lswap="" data-i="1" aria-label="kolab" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 0px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-2" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">W8RK</span>
+      </div>
+      <div data-lswap="" data-i="2" aria-label="MONO" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 0px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-3" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600; text-align: center">FREEDX</span>
+      </div>
+      <div data-lswap="" data-i="3" aria-label="Fjord+Co" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 0px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-4" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">CREDO</span>
+      </div>
+      <div data-lswap="" data-i="4" aria-label="HELIX" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 10px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-5" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">KINODARAN</span>
+      </div>
+      <div data-lswap="" data-i="5" aria-label="portside" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 10px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-6" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">MANGO DORADO</span>
+      </div>
+      <div data-lswap="" data-i="6" aria-label="VANTAGE" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 10px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-7" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">KAMERTOON</span>
+      </div>
+      <div data-lswap="" data-i="7" aria-label="ønorth" style="display:flex;flex:none;flex-direction:column;align-items:center;gap:10px;width:200px;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.07)">
+        <div style="position: relative; width: 160px; height: 160px; border-radius: 10px; overflow: hidden; background: transparent">
+          
+          <media-slot id="logo-8" fit="contain" placeholder="drop logo" style="position: absolute; inset: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"></media-slot>
+        </div>
+        <span style="font: 500 10px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: 0.16em; color: #8A8A8A; user-select: none; font-size: 12px; font-weight: 600">CASTING JEWELRY</span>
+      </div>
+  </div>
+</section><section id="process" data-screen-label="Process" data-scrub="" style="position: relative; width: 100%; height: 440vh; background: #0A0A0A; color: #F6F2EB; overflow: clip; padding-top: 80px; padding-bottom: 80px">
+  <div data-scrubstage="" style="position:sticky;top:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1.1vw,16px);width:100%;height:100vh;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.10),rgba(0,0,0,0) 58%),radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.66))"></div>
+    <p style="position:absolute;left:clamp(18px,4vw,56px);top:clamp(18px,3.4vw,44px);z-index:13;margin:0;font:600 12px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,242,235,.68)"><span style="color:var(--accent)">//</span> Working process</p>
+    <span data-scrubcount="" style="position:absolute;right:clamp(18px,4vw,56px);top:clamp(18px,3.4vw,44px);z-index:13;font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.2em;color:rgba(246,242,235,.68)">01 / 04</span>
+    <h2 data-scrubtop="" style="position:relative;z-index:10;margin:0;font:800 clamp(48px,10vw,140px)/.85 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.04em;text-transform:uppercase;white-space:nowrap;will-change:transform,opacity">How we</h2>
+    <div data-scrubcard="" style="position: relative; z-index: 11; width: min(94vw,calc(62svh * 1.7778)); height: min(62svh,calc(94vw / 1.7778)); transform-origin: 50% 50%; will-change: transform">
+      <media-slot id="ms-process-film" placeholder="drop process film — mp4 / webm" style="position:absolute;inset:0;display:block;width:100%;height:100%"></media-slot>
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 2; pointer-events: none"></div>
+    </div>
+    <h2 data-scrubbot="" style="position:relative;z-index:10;margin:0;font:800 clamp(48px,10vw,140px)/.85 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.04em;text-transform:uppercase;white-space:nowrap;will-change:transform,opacity">Work</h2>
+    <div data-scrubcaps="" style="position:absolute;left:0;right:0;bottom:0;z-index:12;display:grid;gap:clamp(20px,3vw,40px);padding:clamp(60px,8vw,110px) clamp(18px,4vw,56px) clamp(46px,5.4vw,72px);background:linear-gradient(0deg,rgba(10,10,10,.86),rgba(10,10,10,0));opacity:0;transform:translate3d(0,26px,0);pointer-events:none">
+        <div data-scrubcap="" style="grid-area:1/1;display:flex;flex-direction:column;gap:clamp(6px,.7vw,10px);max-width:36ch;opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+          <span style="font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.22em;color:var(--accent)">01</span>
+          <p style="margin:0;font:700 clamp(26px,3.2vw,46px)/1.02 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;text-transform:uppercase;color:#F6F2EB">Discovery</p>
+          <p style="margin:0;font:400 clamp(13px,1.15vw,17px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:rgba(246,242,235,.74);text-wrap:pretty">Stakeholder interviews, audits, and a brutal look at the category.</p>
+        </div>
+        <div data-scrubcap="" style="grid-area:1/1;display:flex;flex-direction:column;gap:clamp(6px,.7vw,10px);max-width:36ch;opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+          <span style="font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.22em;color:var(--accent)">02</span>
+          <p style="margin:0;font:700 clamp(26px,3.2vw,46px)/1.02 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;text-transform:uppercase;color:#F6F2EB">Direction</p>
+          <p style="margin:0;font:400 clamp(13px,1.15vw,17px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:rgba(246,242,235,.74);text-wrap:pretty">One sharp creative thesis — positioning, voice, and visual territory.</p>
+        </div>
+        <div data-scrubcap="" style="grid-area:1/1;display:flex;flex-direction:column;gap:clamp(6px,.7vw,10px);max-width:36ch;opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+          <span style="font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.22em;color:var(--accent)">03</span>
+          <p style="margin:0;font:700 clamp(26px,3.2vw,46px)/1.02 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;text-transform:uppercase;color:#F6F2EB">Production</p>
+          <p style="margin:0;font:400 clamp(13px,1.15vw,17px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:rgba(246,242,235,.74);text-wrap:pretty">Identity, site, and motion built in tight, reviewable sprints.</p>
+        </div>
+        <div data-scrubcap="" style="grid-area:1/1;display:flex;flex-direction:column;gap:clamp(6px,.7vw,10px);max-width:36ch;opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+          <span style="font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.22em;color:var(--accent)">04</span>
+          <p style="margin:0;font:700 clamp(26px,3.2vw,46px)/1.02 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;text-transform:uppercase;color:#F6F2EB">Launch</p>
+          <p style="margin:0;font:400 clamp(13px,1.15vw,17px)/1.5 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:rgba(246,242,235,.74);text-wrap:pretty">Ship, measure, tune. Then hand you a system your team can run.</p>
+        </div>
+    </div>
+    <div aria-hidden="true" style="position:absolute;left:50%;bottom:clamp(20px,2.4vw,30px);z-index:13;width:min(320px,52vw);height:2px;overflow:hidden;background:rgba(246,242,235,.18);opacity:0;transform:translateX(-50%)">
+      <div data-scrubbar="" style="width:0%;height:100%;background:var(--accent);transition:width .18s linear"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="FAQ" style="padding: 100px 24px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+    <div data-fade="" style="flex:1 1 360px;min-width:300px">
+      <p style="margin:0 0 20px;font:600 13px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:.16em;color:var(--ink)"><span style="color:var(--accent)">//</span> FAQ</p>
+      <h2 data-words="" style="margin:0 0 24px;font:600 clamp(36px,5vw,56px)/1.04 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.03em;color:var(--ink);max-width:12ch"><span data-w="" style="display:inline-block">Frequently</span> <span data-w="" style="display:inline-block">Asked</span> <span data-w="" style="display:inline-block">Questions!</span></h2>
+      <p style="margin:0 0 28px;max-width:42ch;font:400 16px/1.55 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body);text-wrap:pretty">The short version of every first call we’ve ever had. Something else on your mind? Just ask.</p>
+      <a href="#contact" data-fill="left" data-fill-on="#fff" style="position:relative;display:inline-flex;align-items:center;height:48px;padding:0 24px;overflow:hidden;border:1px solid var(--accent);border-radius:9999px;background:none;color:var(--accent);font:600 15px 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)"><span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:var(--accent);transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span><span style="position:relative;z-index:1">More About Us →</span></a>
+    </div>
+    <div style="flex:1.2 1 460px;min-width:300px;display:flex;flex-direction:column;gap:12px">
+      <div data-acc="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)">
+        <button data-acch="" aria-expanded="false" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:600 17px/1.35 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">1. What does a typical engagement cost?<span data-acci="" style="display:inline-block;flex:none;font:400 26px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink);transition:transform .3s">+</span></button>
+        <div data-accb="" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 24px 22px;max-width:65ch;font:400 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Identity systems start around $18k; brand plus site engagements typically run $40–90k. We scope fixed-fee, so the number you sign is the number you pay.</p></div></div>
+      </div>
+      <div data-acc="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)">
+        <button data-acch="" aria-expanded="false" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:600 17px/1.35 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">2. How fast can we launch?<span data-acci="" style="display:inline-block;flex:none;font:400 26px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink);transition:transform .3s">+</span></button>
+        <div data-accb="" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 24px 22px;max-width:65ch;font:400 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">A focused brand sprint runs six weeks; brand plus site lands in ten to twelve. We book two clients per cycle, so timelines hold.</p></div></div>
+      </div>
+      <div data-acc="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)">
+        <button data-acch="" aria-expanded="false" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:600 17px/1.35 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">3. What does working together look like?<span data-acci="" style="display:inline-block;flex:none;font:400 26px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink);transition:transform .3s">+</span></button>
+        <div data-accb="" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 24px 22px;max-width:65ch;font:400 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Weekly reviews, one shared channel, and work you can react to from day three. No big reveals — momentum over mystery.</p></div></div>
+      </div>
+      <div data-acc="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)">
+        <button data-acch="" aria-expanded="false" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:600 17px/1.35 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">4. Do you work with in-house teams?<span data-acci="" style="display:inline-block;flex:none;font:400 26px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink);transition:transform .3s">+</span></button>
+        <div data-accb="" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 24px 22px;max-width:65ch;font:400 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Constantly. We set direction and systems, your team runs them. We stay on call for launches and campaign spikes.</p></div></div>
+      </div>
+      <div data-acc="" style="background:var(--surface);border:1px solid color-mix(in srgb,var(--muted) 35%,var(--surface));border-radius:16px;box-shadow:0 1px 2px rgba(10,10,10,.04)">
+        <button data-acch="" aria-expanded="false" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:600 17px/1.35 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink)">5. What happens after launch?<span data-acci="" style="display:inline-block;flex:none;font:400 26px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--ink);transition:transform .3s">+</span></button>
+        <div data-accb="" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 24px 22px;max-width:65ch;font:400 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Every project ships with a living system — files, tokens, and templates — plus a 30-day tuning window. Retainers optional.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="voices" data-screen-label="Testimonials" style="padding: 100px 24px; overflow: hidden">
+  <div data-vox="" style="position:relative;max-width:1120px;margin:0 auto">
+    <div data-voxnum="" aria-hidden="true" style="position:absolute;left:clamp(-56px,-5vw,-16px);top:44%;z-index:0;pointer-events:none;user-select:none;transform:translateY(-50%);transition:transform .55s cubic-bezier(.22,1,.36,1);will-change:transform">
+      <span data-voxnumt="" style="display:block;font:800 clamp(150px,22vw,340px)/.72 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.07em;color:color-mix(in srgb,var(--ink) 6%,transparent)">01</span>
+    </div>
+    <div style="position:relative;z-index:1;display:flex;align-items:stretch">
+      <div data-voxrail="" style="display:none;flex:none;flex-direction:column;align-items:center;justify-content:center;gap:30px;padding-right:clamp(28px,3.4vw,48px);border-right:1px solid color-mix(in srgb,var(--muted) 60%,var(--surface))">
+        <span style="writing-mode:vertical-rl;text-orientation:mixed;font:500 11px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.32em;text-transform:uppercase;color:var(--body)">Testimonials</span>
+        <div style="position:relative;flex:none;width:1px;height:132px;background:color-mix(in srgb,var(--muted) 75%,var(--surface))">
+          <div data-voxprog="" style="position:absolute;left:0;top:0;width:100%;height:33.33%;background:var(--ink);transition:height .5s cubic-bezier(.22,1,.36,1)"></div>
+        </div>
+      </div>
+      <div data-voxbody="" style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:clamp(26px,3.2vw,40px);padding:clamp(4px,1.6vw,20px) 0">
+        <div data-voxstage="" aria-live="polite" style="position:relative;min-height:230px;transition:height .45s cubic-bezier(.22,1,.36,1)">
+        <div data-voxblock="" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:clamp(26px,3.2vw,40px);opacity:1;transition:opacity .3s ease,transform .3s ease">
+          <span data-voxbadge="" style="align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid color-mix(in srgb,var(--ink) 16%,var(--surface));border-radius:9999px;font:500 11px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--body)"><span aria-hidden="true" style="flex:none;width:6px;height:6px;border-radius:9999px;background:var(--accent)"></span>LIGA INSURANCE</span>
+          <blockquote data-voxsplit="" style="margin:0;max-width:22ch;font:600 clamp(28px,4vw,50px)/1.1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;color:var(--ink);text-wrap:pretty">They rebuilt our identity in six weeks and our pipeline doubled by Q3.</blockquote>
+          <div style="display:flex;align-items:center;gap:clamp(12px,1.6vw,20px)">
+            <div data-voxline="" aria-hidden="true" style="flex:none;width:36px;height:1px;background:var(--ink);transform-origin:left center"></div>
+            <div style="position: relative; flex: none; width: 54px; height: 54px">
+              <media-slot id="ms-voice-1" quiet="" placeholder="portrait" style="position: relative; display: block; width: 100%; height: 100%"></media-slot>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
+              <p style="margin:0;font:600 16px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.01em;color:var(--ink)">Maya Okonkwo</p>
+              <p style="margin:0;font:400 14px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">CEO — LIGA INSURANCE</p>
+            </div>
+          </div>
+        </div>
+        <div data-voxblock="" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:clamp(26px,3.2vw,40px);opacity:0;transition:opacity .3s ease,transform .3s ease">
+          <span data-voxbadge="" style="align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid color-mix(in srgb,var(--ink) 16%,var(--surface));border-radius:9999px;font:500 11px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--body)"><span aria-hidden="true" style="flex:none;width:6px;height:6px;border-radius:9999px;background:var(--accent)"></span>KINODARAN</span>
+          <blockquote data-voxsplit="" style="margin:0;max-width:22ch;font:600 clamp(28px,4vw,50px)/1.1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;color:var(--ink);text-wrap:pretty">The clearest strategic thinking we have ever paid for. Every asset shipped on time.</blockquote>
+          <div style="display:flex;align-items:center;gap:clamp(12px,1.6vw,20px)">
+            <div data-voxline="" aria-hidden="true" style="flex:none;width:36px;height:1px;background:var(--ink);transform-origin:left center"></div>
+            <div style="position: relative; flex: none; width: 54px; height: 54px">
+              <media-slot id="ms-voice-2" quiet="" placeholder="portrait" style="position: relative; display: block; width: 100%; height: 100%"></media-slot>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
+              <p style="margin:0;font:600 16px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.01em;color:var(--ink)">Daniel Ferreira</p>
+              <p style="margin:0;font:400 14px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">VP Brand — KINODARAN</p>
+            </div>
+          </div>
+        </div>
+        <div data-voxblock="" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:clamp(26px,3.2vw,40px);opacity:0;transition:opacity .3s ease,transform .3s ease">
+          <span data-voxbadge="" style="align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border:1px solid color-mix(in srgb,var(--ink) 16%,var(--surface));border-radius:9999px;font:500 11px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--body)"><span aria-hidden="true" style="flex:none;width:6px;height:6px;border-radius:9999px;background:var(--accent)"></span>DUCK</span>
+          <blockquote data-voxsplit="" style="margin:0;max-width:22ch;font:600 clamp(28px,4vw,50px)/1.1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.035em;color:var(--ink);text-wrap:pretty">Our investors noticed before our customers did. That is how sharp the work is.</blockquote>
+          <div style="display:flex;align-items:center;gap:clamp(12px,1.6vw,20px)">
+            <div data-voxline="" aria-hidden="true" style="flex:none;width:36px;height:1px;background:var(--ink);transform-origin:left center"></div>
+            <div style="position: relative; flex: none; width: 54px; height: 54px; border-radius: 14px; overflow: hidden">
+              <media-slot id="ms-voice-3" quiet="" placeholder="portrait" style="position: relative; display: block; width: 100%; height: 100%"></media-slot>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;min-width:0">
+              <p style="margin:0;font:600 16px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.01em;color:var(--ink)">Dima Petrovski</p>
+              <p style="margin:0;font:400 14px/1.2 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body)">Founder — DUCK</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:clamp(4px,1vw,12px);border-top:1px solid color-mix(in srgb,var(--muted) 45%,var(--surface))">
+          <span data-voxcount="" style="font:500 12px/1 'SF Mono',ui-monospace,monospace;letter-spacing:.18em;color:var(--body)">01 / 03</span>
+          <div style="display:flex;align-items:center;gap:10px">
+            <button data-voxprev="" type="button" data-fill="left" data-fill-on="var(--surface)" aria-label="Previous testimonial" style="position:relative;display:grid;place-items:center;width:48px;height:48px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--ink) 18%,var(--surface));border-radius:9999px;background:none;color:var(--ink);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)"><span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;background:var(--ink);transform:translateX(-100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M9.75 3.25 5 8l4.75 4.75"></path></svg></button>
+            <button data-voxnext="" type="button" data-fill="right" data-fill-on="var(--surface)" aria-label="Next testimonial" style="position:relative;display:grid;place-items:center;width:48px;height:48px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--ink) 18%,var(--surface));border-radius:9999px;background:none;color:var(--ink);cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),color .3s ease" style-active="transform:scale(.94)"><span data-fillbar="" aria-hidden="true" style="position:absolute;inset:0;background:var(--ink);transform:translateX(100%);transition:transform .38s cubic-bezier(.22,1,.36,1)"></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="m6.25 3.25 4.75 4.75-4.75 4.75"></path></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-voxticker="" aria-hidden="true" style="margin-top:clamp(44px,5.6vw,80px);overflow:hidden;pointer-events:none;opacity:.08;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)">
+      <div data-voxtrack="" style="display:flex;width:max-content;white-space:nowrap;font:800 clamp(38px,5.6vw,68px)/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.04em;color:var(--ink);will-change:transform"><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span><span style="padding-right:56px">LIGA INSURANCE • KINODARAN • DUCK •</span></div>
+    </div>
+  </div>
+</section><footer id="contact" data-screen-label="Footer" style="position: relative; width: 100%; overflow: hidden; border-top: 1px solid var(--alt); background: var(--surface); display: flex; gap: 80px; flex-direction: column">
+  <div style="box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; align-items: center; padding-top: 80px; padding-bottom: 80px"><div data-ftop="" style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 48px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+        <span style="position:relative;display:inline-block;cursor:pointer">
+          
+          <span data-brand="" aria-hidden="true" style="position:absolute;inset:0;display:block;font:700 30px/1.1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.02em;color:var(--ink);clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path .5s cubic-bezier(.22,1,.36,1),text-shadow .5s" style-hover="clip-path:polygon(0 0,100% 0,100% 100%,0 100%);text-shadow:0 0 18px color-mix(in srgb,var(--accent) 70%,transparent)">374 STUDIO</span>
+        </span>
+        <p style="margin:0;max-width:384px;padding:0 16px;text-align:center;font:600 15px/1.6 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;color:var(--body);text-wrap:pretty">An independent studio building kinetic brands and websites for founders who refuse to blend in.</p>
+      </div>
+      <div style="display:flex;gap:16px;margin:12px 0 32px">
+        <a href="#" aria-label="X / Twitter" style="display:block;color:var(--body);text-decoration:none;transition:transform .3s,color .3s" style-hover="transform:scale(1.1);color:var(--ink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"></path></svg></a>
+        <a href="#" aria-label="LinkedIn" style="display:block;color:var(--body);text-decoration:none;transition:transform .3s,color .3s" style-hover="transform:scale(1.1);color:var(--ink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path><path d="M16 16v-3a2 2 0 0 0-4 0"></path></svg></a>
+        <a href="#" aria-label="Behance" style="display:block;color:var(--body);text-decoration:none;transition:transform .3s,color .3s" style-hover="transform:scale(1.1);color:var(--ink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h5.5a2.5 2.5 0 0 1 0 5H3z"></path><path d="M3 11h6a2.5 2.5 0 0 1 0 5H3z"></path><path d="M14 8h6"></path><path d="M14 14h7a3.5 3.5 0 0 0-7 0 3.5 3.5 0 0 0 6 2.5"></path></svg></a>
+        <a href="mailto:hello@374.studio" aria-label="Email" style="display:block;color:var(--body);text-decoration:none;transition:transform .3s,color .3s" style-hover="transform:scale(1.1);color:var(--ink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.99 5.73a2 2 0 0 1-2.02 0L2 7"></path></svg></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:0 16px;font:500 14px/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif">
+        <a href="#work" style="color:var(--body);text-decoration:none;transition:color .3s" style-hover="color:var(--ink);font-weight:600">Work</a><a href="#services" style="color:var(--body);text-decoration:none;transition:color .3s" style-hover="color:var(--ink);font-weight:600">Services</a><a href="#about" style="color:var(--body);text-decoration:none;transition:color .3s" style-hover="color:var(--ink);font-weight:600">About</a><a href="#voices" style="color:var(--body);text-decoration:none;transition:color .3s" style-hover="color:var(--ink);font-weight:600">Testimonials</a><a href="mailto:hello@374.studio" style="color:var(--body);text-decoration:none;transition:color .3s" style-hover="color:var(--ink);font-weight:600">Contact</a>
+      </div>
+    </div><div aria-hidden="true" data-fgiant="" data-brand="" style="margin-top: 80px; width: 100%; align-self: center; padding: 0 16px; text-align: center; font: 800 clamp(48px,12vw,160px)/1 'TT Tunnels','Trebuchet MS',system-ui,sans-serif; letter-spacing: -0.045em; color: transparent; background-image: linear-gradient(to bottom,rgba(34,34,34,.22),rgba(34,34,34,.10) 50%,rgba(34,34,34,0)); -webkit-background-clip: text; background-clip: text; pointer-events: none; user-select: none; white-space: nowrap">374 STUDIO</div></div>
+  
+  
+  
+  
+</footer>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;brandName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;374 Studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF531F&quot;,&quot;options&quot;:[&quot;#FF531F&quot;,&quot;#2547FF&quot;,&quot;#0BA55C&quot;,&quot;#CBC700&quot;,&quot;#111111&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, navShape: 0 };
+  renderVals() {
+    const open = !!this.state.menuOpen, hv = this.state.navShape || 0;
+    const E = 'cubic-bezier(.22,1,.36,1)';
+    const layer = (bg, i) => {
+      const d = open ? i * 110 : (2 - i) * 110;
+      return `position:absolute;inset:0;background:${bg};transform:translateX(${open ? '0%' : '101%'});transition:transform .75s ${E} ${d}ms`;
+    };
+    const spots = [
+      'right:-8%;top:6%;width:min(560px,78%);aspect-ratio:1',
+      'right:-14%;top:22%;width:min(620px,88%);aspect-ratio:1',
+      'right:-4%;top:10%;width:min(520px,72%);aspect-ratio:1',
+      'right:-12%;top:26%;width:min(580px,80%);aspect-ratio:1',
+      'right:-10%;top:4%;width:min(640px,90%);aspect-ratio:1',
+    ];
+    const shape = i => {
+      const on = open && hv === i;
+      return `position:absolute;${spots[i - 1]};opacity:${on ? 1 : 0};transform:scale(${on ? 1 : .78}) rotate(${on ? 0 : -9}deg);transform-origin:65% 40%;transition:opacity .5s ease,transform .85s ${E}`;
+    };
+    const item = i => {
+      const d = open ? 420 + i * 65 : 0;
+      return `display:block;font:600 clamp(32px,min(6vw,9vh),80px)/1.02 'TT Tunnels','Trebuchet MS',system-ui,sans-serif;letter-spacing:-0.04em;transform:translateY(${open ? '0' : '130%'}) rotate(${open ? 0 : 7}deg);opacity:${open ? 1 : 0};transition:transform .85s ${E} ${d}ms,opacity .5s ${d}ms`;
+    };
+    return {
+      sideCells: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      toggleMenu: () => this._navSet(!this.state.menuOpen),
+      closeMenu: () => this._navSet(false),
+      hoverOff: () => this.setState({ navShape: 0 }),
+      hover1: () => this.setState({ navShape: 1 }),
+      hover2: () => this.setState({ navShape: 2 }),
+      hover3: () => this.setState({ navShape: 3 }),
+      hover4: () => this.setState({ navShape: 4 }),
+      hover5: () => this.setState({ navShape: 5 }),
+      bar1: `display:block;width:16px;height:2px;background:currentColor;transition:transform .5s ${E};transform:translateY(${open ? 3 : 0}px) rotate(${open ? 45 : 0}deg)`,
+      bar2: `display:block;width:16px;height:2px;background:currentColor;transition:transform .5s ${E};transform:translateY(${open ? -3 : 0}px) rotate(${open ? -45 : 0}deg)`,
+      labelSlide: `display:block;transition:transform .5s ${E};transform:translateY(${open ? -22 : 0}px)`,
+      navRoot: `position:fixed;inset:0;z-index:95;pointer-events:${open ? 'auto' : 'none'};visibility:${open ? 'visible' : 'hidden'};transition:visibility 0s linear ${open ? '0s' : '1s'}`,
+      navScrim: `position:absolute;inset:0;background:rgba(10,10,10,.5);backdrop-filter:blur(4px);opacity:${open ? 1 : 0};transition:opacity .6s ${E}`,
+      layer1: layer('var(--accent)', 0),
+      layer2: layer('#F3F3F5', 1),
+      layer3: layer('#0A0A0A', 2),
+      navBody: `position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(20px,4vh,56px);height:100%;overflow-y:auto;overscroll-behavior:contain;padding:clamp(20px,3.4vw,52px);opacity:${open ? 1 : 0};transform:translateX(${open ? '0' : '40px'});transition:opacity .5s ${open ? '.4s' : '0s'},transform .7s ${E} ${open ? '.4s' : '0s'}`,
+      shape1: shape(1), shape2: shape(2), shape3: shape(3), shape4: shape(4), shape5: shape(5),
+      item1: item(1), item2: item(2), item3: item(3), item4: item(4), item5: item(5),
+    };
+  }
+  _navSet(open) {
+    if (open === !!this.state.menuOpen) return;
+    this.setState({ menuOpen: open, navShape: 0 });
+    try { document.documentElement.style.overflow = open ? 'hidden' : ''; document.body.style.overflow = open ? 'hidden' : ''; } catch (e) {}
+  }
+  componentDidMount() {
+    this._dead = 0; this._warned = 0; this._obs = []; this._pending = [];
+    try { this._applyProps(); } catch (e) { console.warn('novra props:', e && (e.stack || e.message || e)); }
+    this._animEls = this._q('[data-mq],[data-anim]');
+    this._animEls.forEach(el => { el._animCss = el.dataset.mq || el.dataset.anim || ''; });
+    try { this._setup(); } catch (e) { console.warn('novra setup:', e && (e.stack || e.message || e)); }
+    this._ready = 1;
+    this._reanim();
+    if (!this._hb) this._hb = setInterval(() => { if (!this._dead && performance.now() - (this._tick || 0) > 600) this._kick(); }, 700);
+    this._kick();
+    this._onNavKey = e => { if (e.key === 'Escape') this._navSet(false); };
+    window.addEventListener('keydown', this._onNavKey);
+  }
+  componentDidUpdate() { this._applyProps(); this._reanim(); this._kick(); this._storyBind(); this._reelBind(); this._fillFx(); }
+  _reanim() {
+    (this._animEls || []).forEach(el => { el.style.animation = this.M ? (el._animCss || '') : 'none'; el.style.animationPlayState = ''; });
+    if (!this.M) return;
+    this._q('[data-jphrase]').forEach((el, i) => { if (!i) el.style.removeProperty('transform'); });
+    if (!this._motionRan) { try { this._motionOn(); } catch (e) { console.warn('novra motionOn:', e && (e.stack || e.message || e)); } }
+  }
+  _swapBind() {
+    clearInterval(window.__novraSwapHb);
+    const run = () => {
+      if (!this.M || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.querySelectorAll('[data-lswap]').forEach((el, i) => {
+        el.animate([
+          { clipPath: 'inset(0 0% 0 0)', filter: 'blur(0px)', opacity: 1, offset: 0 },
+          { clipPath: 'inset(0 100% 0 0)', filter: 'blur(8px)', opacity: .2, offset: .4 },
+          { clipPath: 'inset(0 0% 0 0)', filter: 'blur(0px)', opacity: 1, offset: 1 },
+        ], { duration: 920, delay: i * 110, easing: 'cubic-bezier(.16,1,.3,1)' });
+      });
+    };
+    window.__novraSwapHb = setInterval(run, 3200);
+  }
+  _card3d() {
+    const E = 'cubic-bezier(.22,1,.36,1)';
+    this._q('[data-glass]').forEach(card => {
+      if (card._g3d) return; card._g3d = 1;
+      const inner = card.querySelector('[data-glassin]'), badge = card.querySelector('[data-gbadge]'), socs = card.querySelectorAll('[data-gsoc]');
+      const on = v => {
+        if (!this.M) return;
+        inner.style.transform = v ? 'rotate3d(1,1,0,30deg)' : 'none';
+        inner.style.boxShadow = v ? 'rgba(0,0,0,.3) 30px 50px 25px -40px,rgba(0,0,0,.1) 0 25px 30px 0' : '0 22px 50px -26px rgba(10,10,10,.55)';
+        if (badge) badge.style.transform = 'translate3d(0,0,' + (v ? 120 : 100) + 'px)';
+        socs.forEach(b => {
+          b.style.transform = v ? 'translate3d(0,0,50px)' : 'none';
+          b.style.boxShadow = v ? 'rgba(0,0,0,.2) -5px 20px 10px 0' : 'rgba(0,0,0,.5) 0 7px 5px -5px';
+        });
+      };
+      card.onmouseenter = () => on(1);
+      card.onmouseleave = () => on(0);
+      if (!this.M) return;
+      card.style.opacity = '0';
+      this._io(card, .18, () => {
+        const an = card.animate([
+          { opacity: 0, transform: 'translateY(42px) scale(.96)' },
+          { opacity: 1, transform: 'translateY(0) scale(1)' },
+        ], { duration: 760, easing: E, fill: 'backwards' });
+        an.onfinish = () => { card.style.opacity = ''; };
+      });
+    });
+    this._q('[data-t3d]').forEach(card => {
+      if (card._t3d) return; card._t3d = 1;
+      const sheen = card.querySelector('[data-t3dsheen]'), dot = card.querySelector('[data-t3ddot]'), cta = card.querySelector('[data-t3dcta]');
+      let hov = 0;
+      const reset = () => { card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0)'; };
+      reset();
+      card.style.transition = 'transform .5s ' + E + ',box-shadow .5s ' + E;
+      card.onmousemove = e => {
+        if (!this.M) return;
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - .5) * -14, ry = ((e.clientX - r.left) / r.width - .5) * 18;
+        card.style.transition = 'box-shadow .5s ' + E;
+        card.style.transform = 'perspective(1200px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateZ(26px)';
+        if (sheen) sheen.style.backgroundImage = 'linear-gradient(' + (ry * 4 + 135).toFixed(0) + 'deg,transparent 42%,rgba(255,255,255,.28) 50%,transparent 58%)';
+      };
+      card.onmouseenter = () => {
+        hov = 1;
+        card.style.boxShadow = '0 42px 80px -30px rgba(10,10,10,.6)';
+        if (sheen) sheen.style.opacity = '1';
+        if (dot) { dot.style.transform = 'scale(1.35)'; dot.style.background = '#fff'; }
+        if (cta) { cta.style.opacity = '1'; cta.style.transform = 'translateX(0)'; }
+      };
+      card.onmouseleave = () => {
+        hov = 0;
+        card.style.transition = 'transform .6s ' + E + ',box-shadow .6s ' + E;
+        reset();
+        card.style.boxShadow = '0 22px 50px -26px rgba(10,10,10,.55)';
+        if (sheen) sheen.style.opacity = '0';
+        if (dot) { dot.style.transform = ''; dot.style.background = 'rgba(255,255,255,.5)'; }
+        if (cta) { cta.style.opacity = '0'; cta.style.transform = 'translateX(-8px)'; }
+      };
+      if (!this.M) return;
+      card.style.opacity = '0';
+      this._io(card, .18, () => {
+        const an = card.animate([
+          { opacity: 0, transform: 'perspective(1200px) translateY(42px) rotateX(-14deg) scale(.96)' },
+          { opacity: 1, transform: 'perspective(1200px) translateY(0) rotateX(0deg) scale(1)' },
+        ], { duration: 760, delay: (+card.dataset.d || 0) * 90, easing: E, fill: 'backwards' });
+        an.onfinish = () => { card.style.opacity = ''; reset(); };
+      });
+    });
+  }
+  _storyBind() {
+    const prev = window.__novraStorySync;
+    if (prev) { removeEventListener('scroll', prev); removeEventListener('resize', prev); }
+    clearInterval(window.__novraStoryHb);
+    const sync = () => {
+      window.__novraStoryTick = performance.now();
+      const flat = !!(this.props || {}).reduceMotion || matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const vh = innerHeight;
+      document.querySelectorAll('[data-pin]').forEach((el, i) => {
+        if (!i) return;
+        if (flat) { if (el.style.transform !== 'none') el.style.transform = 'none'; return; }
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.top > vh || r.bottom < 0) return;
+        const t = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.75)));
+        const v = t >= 1 ? 'none' : 'rotate(' + (30 * (1 - t)).toFixed(2) + 'deg)';
+        if (el.style.transform !== v) el.style.transform = v;
+      });
+      try { this._scrubSync(); } catch (e) { if (!this._scrubWarned) { this._scrubWarned = 1; console.warn('scrub', e); } }
+    };
+    // frame ticker (this host does not emit window scroll events) + watchdog that revives it
+    const tick = () => {
+      if (window.__novraStorySync !== sync) return;
+      sync();
+      window.__novraStoryRf = requestAnimationFrame(tick);
+    };
+    window.__novraStorySync = this._ssync = sync;
+    addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync, { passive: true });
+    cancelAnimationFrame(window.__novraStoryRf);
+    tick();
+    window.__novraStoryHb = setInterval(() => {
+      if (window.__novraStorySync !== sync) return;
+      if (performance.now() - (window.__novraStoryTick || 0) > 400) { cancelAnimationFrame(window.__novraStoryRf); tick(); }
+    }, 500);
+  }
+  _scrubSync() {
+    const sec = document.querySelector('[data-scrub]');
+    if (!sec) return;
+    let S = sec._S;
+    if (!S) {
+      const q = s => sec.querySelector(s);
+      S = { stage: q('[data-scrubstage]'), card: q('[data-scrubcard]'), t1: q('[data-scrubtop]'), t2: q('[data-scrubbot]'), capw: q('[data-scrubcaps]'), caps: [...sec.querySelectorAll('[data-scrubcap]')], cnt: q('[data-scrubcount]'), bar: q('[data-scrubbar]'), ms: q('media-slot') };
+      if (!S.card || !S.t1 || !S.t2 || !S.stage || !S.capw) return;
+      S.rail = S.bar && S.bar.parentElement;
+      S.css = [[sec, sec.style.cssText], [S.stage, S.stage.style.cssText], [S.card, S.card.style.cssText], [S.capw, S.capw.style.cssText], [S.t1, S.t1.style.cssText], [S.t2, S.t2.style.cssText]].concat(S.caps.map(c => [c, c.style.cssText]));
+      sec._S = S;
+    }
+    const N = S.caps.length || 1;
+    if (!this.M) {
+      if (sec._flat) return;
+      sec._flat = 1;
+      sec.style.height = 'auto';
+      S.stage.style.position = 'static';
+      S.stage.style.height = 'auto';
+      S.stage.style.padding = 'clamp(64px,8vw,110px) clamp(18px,4vw,56px)';
+      S.card.style.transform = 'none';
+      [S.t1, S.t2].forEach(t => { t.style.transform = 'none'; t.style.opacity = '1'; t.style.letterSpacing = '-0.04em'; });
+      S.capw.style.position = 'static';
+      S.capw.style.background = 'none';
+      S.capw.style.padding = 'clamp(34px,4vw,56px) 0 0';
+      S.capw.style.gridTemplateColumns = 'repeat(auto-fit,minmax(200px,1fr))';
+      S.capw.style.opacity = '1';
+      S.capw.style.transform = 'none';
+      S.caps.forEach(c => { c.style.gridArea = 'auto'; c.style.opacity = '1'; c.style.transform = 'none'; });
+      if (S.rail) S.rail.style.opacity = '0';
+      if (S.bar) S.bar.style.width = '100%';
+      return;
+    }
+    if (sec._flat) { sec._flat = 0; S.css.forEach(([el, css]) => { el.style.cssText = css; }); }
+    const r = sec.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
+    if (r.bottom < 0 || r.top > vh) return;
+    const cl = v => Math.max(0, Math.min(1, v));
+    const span = Math.max(1, sec.offsetHeight - vh);
+    const p = cl(-r.top / span);
+    const P1 = .15, P2 = .78;
+    const a = cl(p / P1), b = cl((p - P1) / (P2 - P1)), c = cl((p - P2) / (1 - P2));
+    const eOut = t => 1 - (1 - t) * (1 - t);
+    const eIn = t => t * t;
+    const eIO = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    const eIO3 = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const lerp = (x, y, t) => x + (y - x) * t;
+    const start = vw < 768 ? .82 : .6;
+    const bw = S.card.offsetWidth, bh = S.card.offsetHeight;
+    const imm = bw && bh ? Math.max(vw / bw, vh / bh) * 1.04 : 1.6;
+    const scale = c > 0 ? lerp(imm, start, eIO3(c)) : b > 0 ? lerp(1, imm, eIn(b)) : lerp(start, 1, eOut(a));
+    const out = c > 0 ? 1 - eIO(c) : b > 0 ? 1 : eIO(a);
+    const op = c > 0 ? eIO(c) : 1 - cl((p - P1) / .22);
+    const ls = lerp(-0.04, 0.02, out);
+    const dx = (vw < 768 ? 70 : 60) * out;
+    S.card.style.transform = 'scale(' + scale.toFixed(3) + ')';
+    S.t1.style.transform = 'translate3d(' + (-dx).toFixed(2) + 'vw,0,0)';
+    S.t2.style.transform = 'translate3d(' + dx.toFixed(2) + 'vw,0,0)';
+    S.t1.style.opacity = S.t2.style.opacity = op.toFixed(3);
+    S.t1.style.letterSpacing = S.t2.style.letterSpacing = ls.toFixed(4) + 'em';
+    const idx = Math.min(N - 1, Math.floor(b * N * 0.999));
+    if (sec._idx !== idx) {
+      sec._idx = idx;
+      S.caps.forEach((el, k) => {
+        el.style.opacity = k === idx ? '1' : '0';
+        el.style.transform = k === idx ? 'translateY(0px)' : 'translateY(16px)';
+      });
+      if (S.cnt) S.cnt.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
+    }
+    if (S.bar) S.bar.style.width = (b * 100).toFixed(1) + '%';
+    const ov = c > 0 ? 1 - eIO(c) : cl((p - P1) / .2);
+    S.capw.style.opacity = ov.toFixed(3);
+    S.capw.style.transform = 'translate3d(0,' + ((1 - ov) * 26).toFixed(1) + 'px,0)';
+    if (S.rail) S.rail.style.opacity = ov.toFixed(3);
+    const vid = S.ms && S.ms.shadowRoot && S.ms.shadowRoot.querySelector('video');
+    if (vid && vid.duration) {
+      if (!vid.paused) vid.pause();
+      const t = b * (vid.duration - .05);
+      if (Math.abs(vid.currentTime - t) > .05) { try { vid.currentTime = t; } catch (e) {} }
+    }
+  }
+  _fillFx() {
+    document.querySelectorAll('[data-fill]').forEach(el => {
+      const bar = el.querySelector('[data-fillbar]');
+      if (!bar || el._fx) return;
+      el._fx = 1;
+      const d = el.dataset.fill || 'left';
+      const hide = d === 'right' ? 'translateX(100%)' : d === 'up' ? 'translateY(100%)' : d === 'down' ? 'translateY(-100%)' : 'translateX(-100%)';
+      const on = el.dataset.fillOn || 'var(--surface)';
+      const base = el.style.color || '';
+      bar.style.transform = hide;
+      const enter = () => { bar.style.transition = this.M ? 'transform .38s cubic-bezier(.22,1,.36,1)' : 'none'; bar.style.transform = 'translate(0,0)'; el.style.color = on; };
+      const leave = () => { bar.style.transform = hide; el.style.color = base; };
+      el.addEventListener('pointerenter', enter);
+      el.addEventListener('pointerleave', leave);
+      el.addEventListener('focus', enter);
+      el.addEventListener('blur', leave);
+    });
+  }
+  _reelBind() {
+    const vox = document.querySelector('[data-vox]');
+    if (!vox) return;
+    if (vox._bound && vox.querySelector('[data-vw]')) { vox._apply && vox._apply(); return; }
+    vox._bound = 1;
+    const E = 'cubic-bezier(.22,1,.36,1)';
+    const blocks = [...vox.querySelectorAll('[data-voxblock]')];
+    const stage = vox.querySelector('[data-voxstage]');
+    const numWrap = vox.querySelector('[data-voxnum]'), num = vox.querySelector('[data-voxnumt]');
+    const prog = vox.querySelector('[data-voxprog]');
+    const cnt = vox.querySelector('[data-voxcount]');
+    const bp = vox.querySelector('[data-voxprev]'), bn = vox.querySelector('[data-voxnext]');
+    const track = vox.querySelector('[data-voxtrack]');
+    if (!blocks.length || !stage || !bp || !bn) return;
+    const N = blocks.length;
+    let i = vox._i || 0, busy = 0, shown = -1;
+    blocks.forEach(b => b.querySelectorAll('[data-voxsplit]').forEach(el => {
+      if (el._src == null) el._src = el.textContent.trim();
+      el.textContent = '';
+      el._src.split(/\s+/).forEach(w => {
+        const s = document.createElement('span');
+        s.setAttribute('data-vw', '');
+        s.style.cssText = 'display:inline-block;margin-right:.26em;will-change:transform,opacity';
+        s.textContent = w;
+        el.appendChild(s);
+      });
+    }));
+    const words = b => [...b.querySelectorAll('[data-vw]')];
+    const settle = b => words(b).forEach(w => {
+      w.getAnimations().forEach(a => a.cancel());
+      w.style.opacity = '1'; w.style.transform = 'none';
+    });
+    const rise = b => {
+      if (!this.M) { settle(b); return; }
+      words(b).forEach((w, k) => w.animate(
+        [{ opacity: 0, transform: 'perspective(700px) translateY(24px) rotateX(76deg)' }, { opacity: 1, transform: 'none' }],
+        { duration: 620, delay: k * 45, easing: E, fill: 'both' }
+      ));
+    };
+    const line = b => {
+      const l = b.querySelector('[data-voxline]');
+      if (!l) return;
+      l.getAnimations().forEach(a => a.cancel());
+      if (!this.M) { l.style.transform = 'none'; return; }
+      l.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 620, delay: 240, easing: E, fill: 'both' });
+    };
+    const meta = n => {
+      if (cnt) cnt.textContent = String(n + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
+      if (prog) prog.style.height = ((n + 1) / N * 100).toFixed(2) + '%';
+      const t = String(n + 1).padStart(2, '0');
+      if (num) {
+        if (this.M && num.textContent !== t) num.animate(
+          [{ opacity: 0, filter: 'blur(16px)', transform: 'scale(.86)' }, { opacity: 1, filter: 'blur(0px)', transform: 'none' }],
+          { duration: 720, easing: E, fill: 'both' });
+        num.textContent = t;
+      }
+      const badge = blocks[n].querySelector('[data-voxbadge]');
+      if (badge && this.M) badge.animate(
+        [{ opacity: 0, transform: 'translateX(-18px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 440, easing: E, fill: 'both' });
+    };
+    const show = (n, anim) => {
+      blocks.forEach((b, k) => {
+        const on = k === n;
+        b.style.setProperty('opacity', on ? '1' : '0', 'important');
+        b.style.transform = 'none';
+        b.style.pointerEvents = on ? 'auto' : 'none';
+      });
+      const h = blocks[n].offsetHeight;
+      if (h) stage.style.height = h + 'px';
+      shown = n; meta(n);
+      if (anim) { rise(blocks[n]); line(blocks[n]); } else { settle(blocks[n]); line(blocks[n]); }
+    };
+    const go = dir => {
+      if (busy) return;
+      const n = (i + dir + N) % N;
+      i = n; vox._i = n;
+      if (!this.M) { show(n, 0); return; }
+      busy = 1;
+      const cur = blocks[shown];
+      if (cur) { cur.style.setProperty('opacity', '0', 'important'); cur.style.transform = 'translateY(-14px)'; }
+      setTimeout(() => show(n, 1), 260);
+      setTimeout(() => { busy = 0; }, 780);
+    };
+    clearInterval(this._voxT);
+    const auto = () => {
+      clearInterval(this._voxT);
+      if (!this.M) return;
+      this._voxT = setInterval(() => { if (!vox._pause && !document.hidden) go(1); }, 6400);
+    };
+    vox.onpointerenter = () => { vox._pause = 1; };
+    vox.onpointerleave = () => { vox._pause = 0; };
+    [[bp, -1], [bn, 1]].forEach(([b, d]) => { b.onclick = () => { vox._pause = 1; go(d); }; });
+    vox.setAttribute('tabindex', '0');
+    vox.style.outline = 'none';
+    vox.onkeydown = e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); vox._pause = 1; go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); vox._pause = 1; go(-1); }
+    };
+    if (this._voxMove) removeEventListener('mousemove', this._voxMove);
+    if (numWrap && this.M) {
+      this._voxMove = e => {
+        const r = vox.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        const cl = v => Math.max(-1, Math.min(1, v));
+        const dx = cl((e.clientX - (r.left + r.width / 2)) / (r.width / 2));
+        const dy = cl((e.clientY - (r.top + r.height / 2)) / (r.height / 2));
+        numWrap.style.transform = 'translateY(-50%) translate3d(' + (dx * 24).toFixed(1) + 'px,' + (dy * 13).toFixed(1) + 'px,0)';
+      };
+      addEventListener('mousemove', this._voxMove, { passive: true });
+    } else if (numWrap) numWrap.style.transform = 'translateY(-50%)';
+    if (track) {
+      track.getAnimations().forEach(a => a.cancel());
+      if (this.M) track.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
+        { duration: 34000, iterations: Infinity, easing: 'linear' });
+    }
+    vox._apply = () => { if (shown >= 0) show(shown, 0); };
+    if (this.M && !vox._i) {
+      blocks.forEach(b => b.style.setProperty('opacity', '0', 'important'));
+      words(blocks[0]).forEach(w => { w.style.opacity = '0'; });
+      const l0 = blocks[0].querySelector('[data-voxline]');
+      if (l0) l0.style.transform = 'scaleX(0)';
+      this._io(vox, .18, () => { show(i, 1); auto(); });
+    } else { show(i, 0); auto(); }
+  }
+  _kick() { if (this._dead === undefined) return; this._dead = 0; cancelAnimationFrame(this._rf); this._loop(); }
+  componentWillUnmount() {
+    this._dead = 1; cancelAnimationFrame(this._rf); clearInterval(this._hb); clearInterval(window.__novraSwapHb);
+    if (this._onNavKey) removeEventListener('keydown', this._onNavKey);
+    try { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; } catch (e) {}
+    if (this._ssync) { removeEventListener('scroll', this._ssync), removeEventListener('resize', this._ssync); if (window.__novraStorySync === this._ssync) window.__novraStorySync = null; this._ssync = null; }
+    this._unlisten && this._unlisten();
+    this._pmove && removeEventListener('mousemove', this._pmove);
+    this._voxMove && removeEventListener('mousemove', this._voxMove);
+    clearInterval(this._voxT);
+    clearInterval(this._svcT);
+    (this._obs || []).forEach(o => o.disconnect());
+  }
+  _q(s) { return [...document.querySelectorAll(s)]; }
+  _fitWm() {
+    const hw = document.querySelector('[data-herowm]');
+    if (!hw) return;
+    hw.style.fontSize = '26vw';
+    const w = hw.scrollWidth;
+    if (w > 0) hw.style.fontSize = (26 * Math.min(1, innerWidth * 0.96 / w)).toFixed(2) + 'vw';
+  }
+  _applyProps() {
+    const p = this.props || {};
+    if (p.accent) document.documentElement.style.setProperty('--accent', p.accent);
+    if (p.brandName && p.brandName.trim()) {
+      const b = p.brandName.trim().toUpperCase();
+      this._q('[data-brand]').forEach(el => { if (el.textContent !== b) el.textContent = b; });
+
+      if (this._lastB !== b) { this._lastB = b; this._fitWm(); }
+    }
+    const m = !p.reduceMotion && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this._ready && m !== this.M) { this.M = m; m ? this._motionOn() : this._motionOff(); }
+    else this.M = m;
+  }
+  _setup() {
+    this._applyProps();
+    // FAQ accordion — one open at a time
+    const items = this._q('[data-acc]'); let openIdx = -1;
+    const setOpen = idx => {
+      items.forEach((o, j) => {
+        const on = j === idx;
+        o.querySelector('[data-accb]').style.gridTemplateRows = on ? '1fr' : '0fr';
+        o.querySelector('[data-acci]').style.transform = on ? 'rotate(45deg)' : 'none';
+        o.querySelector('[data-acch]').setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+      openIdx = idx;
+    };
+    items.forEach((it, i) => { it.querySelector('[data-acch]').onclick = () => setOpen(openIdx === i ? -1 : i); });
+    this._card3d();
+    this._svcHints();
+    this._reelBind();
+    this._fillFx();
+    // footer glass pills — reference shadow/transition system
+    const foot = document.getElementById('contact');
+    if (foot) {
+      foot.querySelectorAll('[data-mag]').forEach(el => {
+        if (getComputedStyle(el).backgroundColor === 'rgba(0, 0, 0, 0)' || el.style.background.includes('rgba(255,255,255,.0')) {
+          el.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,.5),inset 0 1px 1px rgba(255,255,255,.1),inset 0 -1px 2px rgba(0,0,0,.8)';
+        }
+        el.style.transition = 'transform .18s cubic-bezier(.2,.6,.3,1),background .4s cubic-bezier(.16,1,.3,1),border-color .4s cubic-bezier(.16,1,.3,1),box-shadow .4s cubic-bezier(.16,1,.3,1),color .4s';
+      });
+      const arrow = foot.querySelector('[data-top] svg');
+      const topBtn = foot.querySelector('[data-top]');
+      if (arrow && topBtn) {
+        arrow.style.transition = 'transform .3s cubic-bezier(.16,1,.3,1)';
+        topBtn.addEventListener('mouseenter', () => arrow.style.transform = 'translateY(-6px)');
+        topBtn.addEventListener('mouseleave', () => arrow.style.transform = '');
+      }
+    }
+    this._q('[data-chrome]').forEach(b => {
+      const f = b.querySelector('[data-chromefill]');
+      if (!f) return;
+      b.onmouseenter = () => f.style.opacity = '1';
+      b.onmouseleave = () => f.style.opacity = '.8';
+    });
+    // back to top
+    this._q('[data-top]').forEach(b => { b.onclick = () => { if (this._wheel) { this._tgt = 0; } else scrollTo({ top: 0, behavior: 'smooth' }); }; });
+    // runtime strips inline animation: — apply from JS (value lives in the data attr)
+    this._animEls = this._q('[data-mq],[data-anim]');
+    this._animEls.forEach(el => { el._animCss = el.dataset.mq || el.dataset.anim || ''; el.style.animation = el._animCss; });
+    this._fitWm();
+    this._ready = 1;
+    this._storyBind();
+    this._swapBind();
+    this._kick();
+    clearInterval(this._hb);
+    this._hb = setInterval(() => { if (!this._dead && performance.now() - (this._tick || 0) > 600) this._kick(); }, 700);
+    if (this.M) { try { this._motionOn(); } catch (e) { console.warn('motionOn', e); } }
+  }
+  _io(el, frac, fn) { this._pending.push({ el, frac, fn }); }
+  _svcHints() {
+    const sync = hint => {
+      const slot = document.getElementById(hint.dataset.slot || '');
+      const sr = slot && slot.shadowRoot;
+      const m = sr && sr.querySelector('.media,img,video');
+      const filled = !!(slot && ((sr && sr.querySelector('.wrap.filled')) || (m && (m.getAttribute('src') || m.currentSrc)) || slot.querySelector('img,video') || slot.getAttribute('src')));
+      hint.style.opacity = filled ? '0' : '1';
+      hint.style.visibility = filled ? 'hidden' : 'visible';
+    };
+    this._q('[data-svchint]').forEach(hint => {
+      hint.style.transition = 'opacity .35s cubic-bezier(.22,1,.36,1)';
+      sync(hint);
+      if (hint._svcObs) return;
+      const slot = document.getElementById(hint.dataset.slot || '');
+      if (!slot) return;
+      const mo = new MutationObserver(() => sync(hint));
+      mo.observe(slot, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+      if (slot.shadowRoot) mo.observe(slot.shadowRoot, { childList: true, subtree: true });
+      hint._svcObs = mo;
+      this._obs.push(mo);
+    });
+  }
+  _motionOn() {
+    this._motionRan = 1;
+    const E1 = 'cubic-bezier(.22,1,.36,1)', E2 = 'cubic-bezier(.34,1.45,.42,1)';
+    (this._animEls || []).forEach(el => { el.style.animation = el._animCss || ''; el.style.animationPlayState = ''; });
+    this._q('[data-jphrase]').forEach((el, i) => { el.style.setProperty('opacity', '0'); if (!i) el.style.removeProperty('transform'); });
+    const fsec = document.querySelector('[data-flyin]');
+    if (fsec) fsec.style.height = '200vh';
+    this._ssync && this._ssync();
+    // per-word blur reveals
+    this._q('[data-words]').forEach(h => {
+      const ws = [...h.querySelectorAll('[data-w]')]; if (!ws.length) return;
+      ws.forEach(s => s.style.opacity = '0');
+      this._io(h, .3, () => ws.forEach((s, i) => {
+        const a = s.animate([{ opacity: 0, filter: 'blur(8px)', transform: 'translateY(24px)' }, { opacity: 1, filter: 'blur(0px)', transform: 'translateY(0px)' }], { duration: 700, delay: i * 55, easing: E1, fill: 'backwards' });
+        a.onfinish = () => { s.style.opacity = ''; };
+      }));
+    });
+    // fade-ups
+    this._q('[data-fade]').forEach(el => {
+      el.style.opacity = '0';
+      this._io(el, .15, () => {
+        const a = el.animate([{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'translateY(0px)' }], { duration: 700, delay: (+el.dataset.d || 0) * 100, easing: E1, fill: 'backwards' });
+        a.onfinish = () => { el.style.opacity = ''; };
+      });
+    });
+    // hero: wordmark mask reveal, card settle, pointer parallax source
+    const wm = document.querySelector('[data-herowm]');
+    if (wm) {
+      this._wmAnim = 1;
+      const a = wm.animate([{ transform: 'translateY(135%)' }, { transform: 'translateY(0%)' }], { duration: 1100, delay: 100, easing: E1, fill: 'backwards' });
+      a.onfinish = () => { this._wmAnim = 0; };
+    }
+    const cw = document.querySelector('[data-cardwrap]');
+    if (cw) cw.animate([{ opacity: 0, transform: 'translateY(70px) scale(.94)' }, { opacity: 1, transform: 'translateY(0px) scale(1)' }], { duration: 1100, delay: 300, easing: E2, fill: 'backwards' });
+    if (!this._pmove && matchMedia('(pointer:fine)').matches) {
+      this._px = this._py = this._cpx = this._cpy = 0;
+      this._pmove = e => { this._px = e.clientX / innerWidth - .5; this._py = e.clientY / innerHeight - .5; };
+      addEventListener('mousemove', this._pmove, { passive: true });
+    }
+    // odometer counters
+    this._q('[data-count]').forEach(el => { this._odoBuild(el); this._io(el, .6, () => this._odoRun(el)); });
+    // process cards scatter -> straighten
+    this._q('[data-proc]').forEach((el, i) => {
+      el.style.opacity = '0';
+      this._io(el, .15, () => {
+        const a = el.animate([{ opacity: 0, transform: 'rotate(' + (el.dataset.r || 0) + 'deg) translateY(80px)' }, { opacity: 1, transform: 'rotate(0deg) translateY(0px)' }], { duration: 900, delay: i * 90, easing: E2, fill: 'backwards' });
+        a.onfinish = () => { el.style.opacity = ''; };
+      });
+    });
+    // footer wordmark mask reveal
+    this._q('[data-maskrev]').forEach(el => {
+      el.style.transform = 'translateY(103%)';
+      this._io(el.parentElement, .2, () => {
+        const a = el.animate([{ transform: 'translateY(103%)' }, { transform: 'translateY(0%)' }], { duration: 1100, easing: E1 });
+        a.onfinish = () => { el.style.transform = ''; };
+      });
+    });
+    // magnetic pills
+    if (!this._magOn) {
+      this._magOn = 1;
+      this._q('[data-mag]').forEach(el => {
+        el.onmousemove = e => {
+          if (!this.M) return;
+          const r = el.getBoundingClientRect();
+          const x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+          el.style.transition = 'transform .18s cubic-bezier(.2,.6,.3,1)';
+          el.style.transform = 'perspective(600px) translate(' + (x * .4).toFixed(1) + 'px,' + (y * .4).toFixed(1) + 'px) rotateX(' + (-y * .15).toFixed(2) + 'deg) rotateY(' + (x * .15).toFixed(2) + 'deg) scale(1.05)';
+        };
+        el.onmouseleave = () => { el.style.transition = 'transform 1.2s cubic-bezier(.16,1.44,.34,1)'; el.style.transform = ''; };
+      });
+    }
+    // lerped smooth scroll (wheel, fine pointers only)
+    if (matchMedia('(pointer:fine)').matches && !this._wheel) {
+      this._tgt = this._cur = scrollY;
+      this._wheel = e => {
+        if (e.ctrlKey || e.metaKey || e.defaultPrevented) return;
+        e.preventDefault();
+        const mx = document.documentElement.scrollHeight - innerHeight;
+        this._tgt = Math.max(0, Math.min(mx, this._tgt + e.deltaY));
+      };
+      this._sc = () => { if (!this._anim) this._tgt = this._cur = scrollY; };
+      addEventListener('wheel', this._wheel, { passive: false });
+      addEventListener('scroll', this._sc, { passive: true });
+      this._unlisten = () => { removeEventListener('wheel', this._wheel); removeEventListener('scroll', this._sc); this._wheel = null; this._unlisten = null; };
+    }
+  }
+  _motionOff() {
+    this._pending = [];
+    this._unlisten && this._unlisten();
+    this._q('[data-w],[data-fade],[data-proc],[data-t3d]').forEach(el => { el.style.opacity = ''; });
+    this._q('[data-t3d]').forEach(el => { el.style.transform = 'none'; });
+    this._q('[data-glass]').forEach(el => { el.style.opacity = ''; });
+    this._q('[data-glassin]').forEach(el => { el.style.transform = 'none'; });
+    this._q('[data-maskrev],[data-tilt],[data-mag],[data-herowm],[data-cardwrap]').forEach(el => { el.style.transform = ''; });
+    this._q('[data-jphrase]').forEach((el, i) => {
+      el.style.setProperty('opacity', i ? '0' : '1', 'important');
+      if (!i) el.style.setProperty('transform', 'translateZ(0)', 'important');
+    });
+    this._q('[data-fgiant]').forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
+    this._q('[data-flyer]').forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
+    const fs = document.querySelector('[data-flyin]'); if (fs) fs.style.height = '100vh';
+    this._q('[data-pin]').forEach(el => { el.style.transform = 'none'; });
+    if (this._cine) { this._cine.style.transform = ''; this._cine.style.opacity = ''; }
+    this._pmove && (removeEventListener('mousemove', this._pmove), this._pmove = null);
+    (this._animEls || []).forEach(el => { el.style.animation = 'none'; });
+    this._motionRan = 0;
+  }
+  _odoBuild(el) {
+    if (el._odo) return; el._odo = 1;
+    const txt = el.textContent.trim();
+    el.textContent = ''; el.style.display = 'inline-flex'; el.style.alignItems = 'flex-start'; el._cols = [];
+    [...txt].forEach(ch => {
+      if (/[0-9]/.test(ch)) {
+        const w = document.createElement('span'); w.style.cssText = 'display:block;height:1em;overflow:hidden';
+        const c = document.createElement('span'); c.style.cssText = 'display:block;transition:transform 1.2s cubic-bezier(.19,1,.22,1)';
+        for (let k = 0; k < 20; k++) { const d = document.createElement('span'); d.style.cssText = 'display:block;height:1em'; d.textContent = k % 10; c.appendChild(d); }
+        c._d = 10 + (+ch); w.appendChild(c); el.appendChild(w); el._cols.push(c);
+      } else {
+        const s = document.createElement('span'); s.style.cssText = 'display:block;height:1em'; s.textContent = ch; el.appendChild(s);
+      }
+    });
+  }
+  _odoRun(el) { (el._cols || []).forEach((c, i) => { c.style.transitionDelay = (i * 90) + 'ms'; c.style.transform = 'translateY(-' + c._d + 'em)'; }); }
+  _loop() {
+    if (this._dead) return;
+    this._tick = performance.now();
+    this._rf = requestAnimationFrame(() => this._loop());
+    try { this._frame(); } catch (e) { if (!this._warned) { this._warned = 1; console.warn('loop frame', e); } }
+  }
+  _frame() {
+    if (this._svcBlocks && this._svcBlocks.length) {
+      const band = innerHeight * 0.5; let k = null, near = null, best = 1e9;
+      this._svcBlocks.forEach(b => {
+        const r = b.getBoundingClientRect();
+        if (r.top < band && r.bottom > band) k = b.dataset.svc;
+        const d = Math.min(Math.abs(r.top - band), Math.abs(r.bottom - band));
+        if (d < best) { best = d; near = b.dataset.svc; }
+      });
+      this._setSvc(k || near || this._svcK);
+    }
+    if (!this.M) return;
+    // rAF-driven one-shot reveals (deterministic; IO proved unreliable here)
+    if (this._pending && this._pending.length) {
+      const vh0 = innerHeight;
+      for (let i = this._pending.length - 1; i >= 0; i--) {
+        const p = this._pending[i], r = p.el.getBoundingClientRect();
+        if (r.top < vh0 * (1 - p.frac * 0.5) && r.bottom > 0) { this._pending.splice(i, 1); p.fn(); }
+      }
+    }
+    if (this._wheel) {
+      const d = this._tgt - this._cur;
+      if (Math.abs(d) > 0.35) { this._anim = 1; this._cur += d * 0.1; scrollTo(0, this._cur); } else this._anim = 0;
+    }
+    const vh = innerHeight, y = scrollY;
+    this._cpx += ((this._px || 0) - this._cpx) * .085; this._cpy += ((this._py || 0) - this._cpy) * .085;
+    if (!this._fgiant) this._fgiant = document.querySelector('[data-fgiant]');
+    if (this._fgiant) {
+      const r = this._fgiant.parentElement.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) {
+        const p = Math.max(0, Math.min(1, (vh - r.top) / (r.height * 0.9)));
+        this._fgiant.style.transform = 'translateY(' + ((1 - p) * 10).toFixed(2) + 'vh) scale(' + (0.85 + 0.15 * p).toFixed(3) + ')';
+        this._fgiant.style.opacity = p.toFixed(2);
+      }
+    }
+    if (!this._fly || !this._flyer) { this._fly = document.querySelector('[data-flyin]'); this._flyer = document.querySelector('[data-flyer]'); }
+    if (this._fly && this._flyer) {
+      const r = this._fly.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) {
+        // scrollYProgress across ["start end","end start"]
+        const p = Math.max(0, Math.min(1, (vh - r.top) / (r.height + vh)));
+        const W = innerWidth;
+        const lerp = (a, b, t) => a + (b - a) * Math.max(0, Math.min(1, t));
+        const x = lerp(-5 * W, 2.5 * W, (p - 0.1) / 0.7);
+        const op = p < 0.25 ? lerp(0, 1, (p - 0.1) / 0.15) : p > 0.7 ? lerp(1, 0, (p - 0.7) / 0.1) : 1;
+        this._flyer.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+        this._flyer.style.opacity = op.toFixed(3);
+      }
+    }
+    if (!this._tilts || !this._tilts.length) this._tilts = this._q('[data-tilt]');
+    this._tilts.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.top > vh || r.bottom < 0) return;
+      const t = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.55)));
+      const v = 'rotateX(' + (18 * (1 - t)).toFixed(2) + 'deg) scale(' + (0.92 + 0.08 * t).toFixed(4) + ')';
+      if (el.style.transform !== v) el.style.transform = v;
+    });
+  }
+}
+</script>
+</body>
+</html>

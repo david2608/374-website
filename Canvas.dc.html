@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./media-slot.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#f7f7f7;color:#3e3e3e;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-0.02em}
+a{color:#007aff;text-decoration:none}
+a:hover{color:#0060cc}
+::selection{background:#007aff;color:#fff}
+media-slot{display:block}
+@keyframes wrot{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-25%)}50%,70%{transform:translateY(-50%)}75%,95%{transform:translateY(-75%)}100%{transform:translateY(0)}}
+@keyframes glowbreathe{0%,100%{opacity:.82}50%{opacity:1}}
+@keyframes cuedrop{0%{transform:translateY(0);opacity:.25}50%{transform:translateY(7px);opacity:1}100%{transform:translateY(0);opacity:.25}}
+@media (max-width:900px){[data-metagrid]{grid-template-columns:repeat(2,1fr)!important}[data-insights]{grid-template-columns:1fr!important}[data-navlinks]{display:none!important}[data-steplist]{display:none!important}[data-brief]{grid-template-columns:1fr!important}}
+@media (max-width:640px){[data-metagrid]{grid-template-columns:1fr!important}}
+@media (prefers-reduced-motion:reduce){[data-anim]{animation:none!important}}
+</style>
+</helmet>
+<div style="overflow-x:clip;background:#f7f7f7">
+
+<header data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:90;display:flex;justify-content:center;padding:20px 16px;pointer-events:none">
+  <nav data-nav="" style="pointer-events:auto;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 16px;border-radius:22px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);backdrop-filter:blur(14px);transition:background .4s ease,box-shadow .4s ease">
+    <a href="#top" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+      <span aria-hidden="true" style="display:block;width:26px;height:26px;border-radius:50%;background:linear-gradient(150deg,#007aff 0%,#7b7ed8 100%)"></span>
+      <span data-navtext="" style="font:600 18px/1 Inter,sans-serif;letter-spacing:-0.02em;color:#fff;transition:color .4s ease">374</span>
+    </a>
+    <div data-navlinks="" style="display:flex;align-items:center;gap:4px">
+      <a href="#brief" data-navtext="" style="padding:6px 10px;font:500 14px/1 Inter,sans-serif;color:#fff;text-decoration:none;opacity:.72;transition:opacity .25s ease,color .4s ease" style-hover="opacity:1">Brief</a>
+      <a href="#insights" data-navtext="" style="padding:6px 10px;font:500 14px/1 Inter,sans-serif;color:#fff;text-decoration:none;opacity:.72;transition:opacity .25s ease,color .4s ease" style-hover="opacity:1">Research</a>
+      <a href="#flow" data-navtext="" style="padding:6px 10px;font:500 14px/1 Inter,sans-serif;color:#fff;text-decoration:none;opacity:.72;transition:opacity .25s ease,color .4s ease" style-hover="opacity:1">Flow</a>
+      <a href="#screens" data-navtext="" style="padding:6px 10px;font:500 14px/1 Inter,sans-serif;color:#fff;text-decoration:none;opacity:.72;transition:opacity .25s ease,color .4s ease" style-hover="opacity:1">Screens</a>
+    </div>
+    <a href="#next" style="display:inline-flex;align-items:center;height:38px;padding:0 20px;border-radius:50px;background:#007aff;color:#fff;font:600 14px/1 Inter,sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 0 rgba(255,255,255,.35),0 0 0 1px rgba(0,0,0,.12);transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="color:#fff" style-active="transform:scale(.96)">Work with us</a>
+  </nav>
+</header>
+
+<section id="top" data-hero="" data-screen-label="Hero" style="position:relative;background:#08090c;padding:170px 24px 0">
+  <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div data-heroglow="" data-anim="glowbreathe 9s ease-in-out infinite" style="position:absolute;top:-30%;left:50%;width:120vw;height:110vh;transform:translateX(-50%);background:radial-gradient(46% 42% at 50% 34%,rgba(0,122,255,.52) 0%,rgba(0,122,255,0) 68%)"></div>
+    <div data-heroglow="" data-anim="glowbreathe 13s ease-in-out 1.5s infinite" style="position:absolute;top:6%;left:12%;width:70vw;height:80vh;background:radial-gradient(50% 46% at 40% 50%,rgba(123,126,216,.4) 0%,rgba(123,126,216,0) 70%)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,12,.2) 0%,rgba(8,9,12,.55) 62%,#08090c 100%)"></div>
+  </div>
+
+  <div data-herotext="" style="position:relative;z-index:2;max-width:1200px;margin:0 auto;will-change:transform,opacity">
+    <p style="margin:0 0 24px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)">Case study — Icredo · 2026</p>
+    <h1 style="margin:0;max-width:16ch;font:400 clamp(48px,8.4vw,116px)/1.02 'Instrument Serif',Georgia,serif;letter-spacing:-0.01em;color:#fff">Borrowing without</h1>
+    <div aria-hidden="false" style="height:1.15em;overflow:hidden;font:400 clamp(48px,8.4vw,116px)/1.15 'Instrument Serif',Georgia,serif;color:#007aff">
+      <div data-anim="wrot 14s cubic-bezier(.76,0,.24,1) infinite" style="display:flex;flex-direction:column;will-change:transform">
+        <span style="display:block;height:1.15em;line-height:1.15em">the fine print</span>
+        <span style="display:block;height:1.15em;line-height:1.15em">the waiting room</span>
+        <span style="display:block;height:1.15em;line-height:1.15em">the guesswork</span>
+        <span style="display:block;height:1.15em;line-height:1.15em">the anxiety</span>
+      </div>
+    </div>
+    <p style="margin:36px 0 0;max-width:56ch;font:400 18px/1.5 Inter,sans-serif;letter-spacing:-0.36px;color:rgba(255,255,255,.72);text-wrap:pretty">Icredo is a banking app for consumer loans. We redesigned application, decisioning and repayment into a single flow a person can finish in one sitting — and understand every step of the way.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:40px">
+      <a href="#flow" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:50px;background:#fff;color:#000;font:600 15px/1 Inter,sans-serif;text-decoration:none;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="color:#000" style-active="transform:scale(.96)">See the flow</a>
+      <a href="#screens" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:50px;background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);color:#fff;font:500 15px/1 Inter,sans-serif;text-decoration:none;transition:box-shadow .3s ease,transform .2s cubic-bezier(.22,1,.36,1)" style-hover="color:#fff;box-shadow:inset 0 0 0 1.5px #fff" style-active="transform:scale(.96)">Screens</a>
+    </div>
+    <div aria-hidden="true" data-anim="cuedrop 2.4s ease-in-out infinite" style="margin-top:56px;font:500 11px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)">Scroll</div>
+  </div>
+
+  <div style="position:relative;z-index:2;max-width:1200px;margin:70px auto -110px;padding:10px;border-radius:30px;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 90px -50px rgba(0,0,0,.7)">
+    <media-slot id="ms-icredo-cover" placeholder="drop cover — app shot or hero render (16:10)" style="position:relative;width:100%;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:#f7f7f7"></media-slot>
+  </div>
+</section>
+
+<section data-screen-label="Meta" style="padding:170px 24px 100px">
+  <div data-metagrid="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto">
+    <div data-fade="" style="padding:20px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+      <p style="margin:0 0 10px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#636363">Role</p>
+      <p style="margin:0;font:600 16px/1.3 Inter,sans-serif;color:#000">Product design, UX research</p>
+    </div>
+    <div data-fade="" data-d="1" style="padding:20px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+      <p style="margin:0 0 10px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#636363">Year</p>
+      <p style="margin:0;font:600 16px/1.3 Inter,sans-serif;color:#000">2026</p>
+    </div>
+    <div data-fade="" data-d="2" style="padding:20px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+      <p style="margin:0 0 10px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#636363">Platform</p>
+      <p style="margin:0;font:600 16px/1.3 Inter,sans-serif;color:#000">iOS · Android</p>
+    </div>
+    <div data-fade="" data-d="3" style="padding:20px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+      <p style="margin:0 0 10px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#636363">Scope</p>
+      <p style="margin:0;font:600 16px/1.3 Inter,sans-serif;color:#000">Application → repayment</p>
+    </div>
+  </div>
+</section>
+
+<section id="brief" data-screen-label="Brief" style="padding:0 24px 120px">
+  <div data-brief="" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:1200px;margin:0 auto">
+    <div data-fade="">
+      <p style="margin:0 0 24px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#636363">01 — The brief</p>
+      <h2 style="margin:0;max-width:18ch;font:400 clamp(36px,4.4vw,52px)/1.02 'Instrument Serif',Georgia,serif;color:#000;text-wrap:pretty">The problem was never the money</h2>
+    </div>
+    <div data-fade="" data-d="1" style="display:flex;flex-direction:column;gap:20px;max-width:60ch">
+      <p style="margin:0;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Icredo already had the licence, the pricing and the risk model. What it did not have was a flow a person could finish. Applicants dropped out halfway, called support to ask what was happening, and came back a week later to start again from the first screen.</p>
+      <p style="margin:0;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Our brief: one continuous flow from eligibility to first repayment, where the cost of the loan is legible at every step and the state of the application is never a mystery.</p>
+      <div style="margin-top:8px;padding:20px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+        <p style="margin:0;font:400 clamp(20px,2vw,24px)/1.25 'Instrument Serif',Georgia,serif;color:#000;text-wrap:pretty">“Tell me what it costs, and tell me where I stand.”</p>
+        <p style="margin:10px 0 0;font:400 14px/1.3 Inter,sans-serif;color:#636363">Recurring line across 14 applicant interviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="insights" data-screen-label="Insights" style="padding:0 24px 130px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div data-fade="" style="max-width:720px;margin-bottom:48px">
+      <p style="margin:0 0 24px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#636363">02 — Research</p>
+      <h2 style="margin:0;font:400 clamp(36px,4.4vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000;text-wrap:pretty">Three findings that reshaped the product</h2>
+      <p style="margin:20px 0 0;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Fourteen applicant interviews, six sessions with credit officers, and a walkthrough of 900 abandoned applications in the existing funnel.</p>
+    </div>
+    <div data-insights="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div data-fade="" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:26px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+        <span style="display:inline-flex;align-items:center;align-self:flex-start;padding:4px 10px;border-radius:50px;background:rgba(0,122,255,.1);font:500 12px/1.2 Inter,sans-serif;color:#007aff">Finding 01</span>
+        <h3 style="margin:0;font:600 18px/1.3 Inter,sans-serif;color:#000">Documents are the cliff edge</h3>
+        <p style="margin:0;font:400 14px/1.35 Inter,sans-serif;letter-spacing:-0.28px;color:#3e3e3e;text-wrap:pretty">Most abandonment happened at the upload step — people were away from their papers, on a phone, with no way to save and return. Nothing about the flow acknowledged that.</p>
+      </div>
+      <div data-fade="" data-d="1" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:26px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+        <span style="display:inline-flex;align-items:center;align-self:flex-start;padding:4px 10px;border-radius:50px;background:rgba(0,122,255,.1);font:500 12px/1.2 Inter,sans-serif;color:#007aff">Finding 02</span>
+        <h3 style="margin:0;font:600 18px/1.3 Inter,sans-serif;color:#000">Silence reads as rejection</h3>
+        <p style="margin:0;font:400 14px/1.35 Inter,sans-serif;letter-spacing:-0.28px;color:#3e3e3e;text-wrap:pretty">A pending decision with no visible state was interpreted as a no. People stopped waiting and applied elsewhere while their application was still alive.</p>
+      </div>
+      <div data-fade="" data-d="2" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:26px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+        <span style="display:inline-flex;align-items:center;align-self:flex-start;padding:4px 10px;border-radius:50px;background:rgba(0,122,255,.1);font:500 12px/1.2 Inter,sans-serif;color:#007aff">Finding 03</span>
+        <h3 style="margin:0;font:600 18px/1.3 Inter,sans-serif;color:#000">Trust is built after signing</h3>
+        <p style="margin:0;font:400 14px/1.35 Inter,sans-serif;letter-spacing:-0.28px;color:#3e3e3e;text-wrap:pretty">Repayment was treated as back-office. Yet every question about early payoff, fees and schedule changes arrived there — so that is where the product had to be clearest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow" data-scrub="" data-screen-label="Flow" style="position:relative;height:520vh;background:#f7f7f7">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+    <div style="display:flex;flex-direction:column;height:100%;max-width:1200px;margin:0 auto;padding:104px 24px 40px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px">
+        <p style="margin:0;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#636363">03 — Information architecture</p>
+        <p data-scrubcount="" style="margin:0;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;color:#000">01 / 05</p>
+      </div>
+      <div style="position:relative;height:2px;margin:20px 0 0;background:#e8e8e8;border-radius:50px">
+        <div data-scrubbar="" style="position:absolute;left:0;top:0;height:100%;width:20%;background:#007aff;border-radius:50px"></div>
+      </div>
+      <div style="display:flex;flex:1;gap:48px;align-items:center;min-height:0">
+        <div style="flex:1 1 auto;min-width:0">
+          <div style="position:relative;min-height:210px">
+            <div data-step="" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:16px;opacity:1;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+              <h2 style="margin:0;max-width:20ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">Eligibility in thirty seconds</h2>
+              <p style="margin:0;max-width:52ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Four inputs, no account, no credit pull. The applicant sees a real range and the monthly figure before being asked for anything personal.</p>
+            </div>
+            <div data-step="" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+              <h2 style="margin:0;max-width:20ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">Documents by camera</h2>
+              <p style="margin:0;max-width:52ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Guided capture with instant validation, and a saved draft the moment the first field is filled. Leaving the flow no longer means losing it.</p>
+            </div>
+            <div data-step="" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+              <h2 style="margin:0;max-width:20ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">An offer you can compare</h2>
+              <p style="margin:0;max-width:52ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Term, rate and total cost side by side, with the trade-off shown as you move the slider. Every fee is named on the same screen as the price.</p>
+            </div>
+            <div data-step="" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+              <h2 style="margin:0;max-width:20ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">Signing with a visible state</h2>
+              <p style="margin:0;max-width:52ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">A live status card replaces the silent wait: what is being checked, what is left, and who to contact — carried into notifications.</p>
+            </div>
+            <div data-step="" style="position:absolute;inset:0;display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)">
+              <h2 style="margin:0;max-width:20ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">Repayment you can steer</h2>
+              <p style="margin:0;max-width:52ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:#3e3e3e;text-wrap:pretty">Schedule, early payoff quote and payment-date change in one place — the three things people used to call support about.</p>
+            </div>
+          </div>
+          <ul data-steplist="" style="display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 0;padding:0;list-style:none">
+            <li data-dot="" style="padding:6px 14px;border-radius:50px;background:#fff;box-shadow:0 0 0 1px #ececec;font:500 12px/1.2 Inter,sans-serif;color:#000;transition:color .4s ease,box-shadow .4s ease,background .4s ease">01 Eligibility</li>
+            <li data-dot="" style="padding:6px 14px;border-radius:50px;background:#fff;box-shadow:0 0 0 1px #ececec;font:500 12px/1.2 Inter,sans-serif;color:#9b9b9b;transition:color .4s ease,box-shadow .4s ease,background .4s ease">02 Documents</li>
+            <li data-dot="" style="padding:6px 14px;border-radius:50px;background:#fff;box-shadow:0 0 0 1px #ececec;font:500 12px/1.2 Inter,sans-serif;color:#9b9b9b;transition:color .4s ease,box-shadow .4s ease,background .4s ease">03 Offer</li>
+            <li data-dot="" style="padding:6px 14px;border-radius:50px;background:#fff;box-shadow:0 0 0 1px #ececec;font:500 12px/1.2 Inter,sans-serif;color:#9b9b9b;transition:color .4s ease,box-shadow .4s ease,background .4s ease">04 Signing</li>
+            <li data-dot="" style="padding:6px 14px;border-radius:50px;background:#fff;box-shadow:0 0 0 1px #ececec;font:500 12px/1.2 Inter,sans-serif;color:#9b9b9b;transition:color .4s ease,box-shadow .4s ease,background .4s ease">05 Repayment</li>
+          </ul>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:auto;height:clamp(320px,calc(100vh - 300px),560px);max-width:32vw;aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+          <media-slot id="ms-icredo-flow-1" data-slide="" placeholder="01 eligibility screen" style="position:absolute;inset:10px;border-radius:30px;overflow:hidden;background:#f7f7f7;opacity:1;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)"></media-slot>
+          <media-slot id="ms-icredo-flow-2" data-slide="" placeholder="02 documents screen" style="position:absolute;inset:10px;border-radius:30px;overflow:hidden;background:#f7f7f7;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)"></media-slot>
+          <media-slot id="ms-icredo-flow-3" data-slide="" placeholder="03 offer screen" style="position:absolute;inset:10px;border-radius:30px;overflow:hidden;background:#f7f7f7;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)"></media-slot>
+          <media-slot id="ms-icredo-flow-4" data-slide="" placeholder="04 signing screen" style="position:absolute;inset:10px;border-radius:30px;overflow:hidden;background:#f7f7f7;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)"></media-slot>
+          <media-slot id="ms-icredo-flow-5" data-slide="" placeholder="05 repayment screen" style="position:absolute;inset:10px;border-radius:30px;overflow:hidden;background:#f7f7f7;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)"></media-slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screens" data-rail="" data-screen-label="Screens" style="position:relative;height:360vh;background:#f7f7f7">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+    <div style="display:flex;flex-direction:column;height:100%;padding:104px 0 60px">
+      <div style="flex:0 0 auto;max-width:1200px;width:100%;margin:0 auto;padding:0 24px">
+        <p style="margin:0 0 16px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#636363">04 — Screens</p>
+        <h2 style="margin:0;max-width:22ch;font:400 clamp(32px,3.8vw,48px)/1.02 'Instrument Serif',Georgia,serif;color:#000">Twelve weeks of the app, six screens deep</h2>
+      </div>
+      <div style="display:flex;flex:1;align-items:center;min-height:0;overflow:hidden">
+        <div data-railtrack="" style="display:flex;gap:24px;padding:0 max(24px,calc(50vw - 600px));will-change:transform">
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-1" placeholder="onboarding" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Eligibility check — no account required</figcaption>
+          </figure>
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-2" placeholder="amount + term" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Amount and term, total cost live</figcaption>
+          </figure>
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-3" placeholder="document capture" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Guided capture with instant checks</figcaption>
+          </figure>
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-4" placeholder="application status" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Status card — what is being checked</figcaption>
+          </figure>
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-5" placeholder="repayment schedule" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Schedule and early payoff quote</figcaption>
+          </figure>
+          <figure style="flex:0 0 auto;margin:0;display:flex;flex-direction:column;gap:14px;width:min(280px,64vw)">
+            <div style="flex:0 0 auto;align-self:flex-start;width:auto;height:clamp(300px,calc(100vh - 330px),520px);max-width:min(280px,64vw);aspect-ratio:9/19;padding:10px;border-radius:40px;background:#fff;box-shadow:0 0 0 5px #f7f7f7">
+              <media-slot id="ms-icredo-screen-6" placeholder="component library" style="position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#f7f7f7"></media-slot>
+            </div>
+            <figcaption style="font:400 14px/1.3 Inter,sans-serif;color:#636363">Shared components across both platforms</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Testimonial" style="padding:120px 24px">
+  <div data-fade="" style="max-width:900px;margin:0 auto;text-align:center">
+    <p style="margin:0 0 32px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#636363">05 — Client</p>
+    <blockquote style="margin:0;font:400 clamp(28px,3.6vw,44px)/1.12 'Instrument Serif',Georgia,serif;color:#000;text-wrap:pretty">“The team rebuilt the part of our product we had been arguing about for two years. Support tickets about ‘where is my application’ stopped being a category.”</blockquote>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:32px">
+      <media-slot id="ms-icredo-client" placeholder="photo" style="position:relative;width:44px;height:44px;border-radius:50px;overflow:hidden;background:#fff;box-shadow:0 0 0 5px #f7f7f7;flex:0 0 auto"></media-slot>
+      <p style="margin:0;text-align:left;font:400 14px/1.3 Inter,sans-serif;color:#636363"><span style="display:block;font-weight:600;color:#000">Name, Title</span>Icredo</p>
+    </div>
+  </div>
+</section>
+
+<section id="next" data-screen-label="Next" style="padding:24px">
+  <div style="position:relative;overflow:hidden;max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,90px) clamp(24px,4vw,64px);border-radius:30px;background:#08090c">
+    <div aria-hidden="true" data-anim="glowbreathe 11s ease-in-out infinite" style="position:absolute;bottom:-40%;right:-10%;width:70%;height:150%;background:radial-gradient(50% 50% at 50% 50%,rgba(0,122,255,.42) 0%,rgba(0,122,255,0) 70%);pointer-events:none"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;justify-content:space-between">
+      <div>
+        <p style="margin:0 0 20px;font:500 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)">Next case</p>
+        <a href="#top" style="display:block;font:400 clamp(36px,5.4vw,72px)/1.02 'Instrument Serif',Georgia,serif;color:#fff;text-decoration:none;transition:color .3s ease" style-hover="color:#007aff">Meridian — wealth app</a>
+        <p style="margin:20px 0 0;max-width:44ch;font:400 16px/1.35 Inter,sans-serif;letter-spacing:-0.32px;color:rgba(255,255,255,.66);text-wrap:pretty">Have a flow that people abandon halfway? That is the work we like most.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="mailto:hello@374.studio" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:50px;background:#007aff;color:#fff;font:600 15px/1 Inter,sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 0 rgba(255,255,255,.35),0 0 0 1px rgba(0,0,0,.15);transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="color:#fff" style-active="transform:scale(.96)">Start a project</a>
+        <a href="#top" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:50px;background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);color:#fff;font:500 15px/1 Inter,sans-serif;text-decoration:none;transition:box-shadow .3s ease,transform .2s cubic-bezier(.22,1,.36,1)" style-hover="color:#fff;box-shadow:inset 0 0 0 1.5px #fff" style-active="transform:scale(.96)">Back to top</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;max-width:1200px;margin:0 auto;padding:40px 24px 60px">
+  <p style="margin:0;font:400 12px/1.2 Inter,sans-serif;color:#636363">374 Studio — Icredo case study</p>
+  <p style="margin:0;font:400 12px/1.2 Inter,sans-serif;color:#636363">Drop your own screens into any slot</p>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#007aff&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#007aff&quot;,&quot;#0a84ff&quot;,&quot;#5b5bd6&quot;,&quot;#111111&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;glow&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;dusk&quot;,&quot;options&quot;:[&quot;dusk&quot;,&quot;cobalt&quot;,&quot;mono&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._pending = [];
+    this._dead = 0;
+    this._setup();
+    this._loop();
+  }
+  componentWillUnmount() { this._dead = 1; cancelAnimationFrame(this._rf); }
+  componentDidUpdate() { this._applyProps(); }
+  renderVals() { return {}; }
+
+  _q(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
+
+  _applyProps() {
+    const p = this.props || {};
+    const accent = p.accent || '#007aff';
+    if (accent !== this._accent) {
+      this._accent = accent;
+      this._q('[data-scrubbar]').forEach(el => { el.style.background = accent; });
+    }
+    const glows = {
+      dusk: ['radial-gradient(46% 42% at 50% 34%,rgba(0,122,255,.52) 0%,rgba(0,122,255,0) 68%)', 'radial-gradient(50% 46% at 40% 50%,rgba(123,126,216,.4) 0%,rgba(123,126,216,0) 70%)'],
+      cobalt: ['radial-gradient(46% 42% at 50% 32%,rgba(0,122,255,.62) 0%,rgba(0,122,255,0) 66%)', 'radial-gradient(52% 46% at 62% 56%,rgba(0,122,255,.26) 0%,rgba(0,122,255,0) 72%)'],
+      mono: ['radial-gradient(46% 42% at 50% 34%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 68%)', 'radial-gradient(50% 46% at 40% 52%,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 70%)']
+    };
+    const g = glows[p.glow] || glows.dusk;
+    if (p.glow !== this._glow) {
+      this._glow = p.glow;
+      this._q('[data-heroglow]').forEach((el, i) => { el.style.background = g[i] || g[0]; });
+    }
+    const m = !p.reduceMotion && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this._ready && m !== this.M) { this.M = m; m ? this._motionOn() : this._motionOff(); }
+    else this.M = m;
+  }
+
+  _setup() {
+    this._applyProps();
+    // runtime strips inline animation: — re-apply from the data attribute
+    this._animEls = this._q('[data-anim]');
+    this._animEls.forEach(el => { el._css = el.dataset.anim || ''; el.style.animation = el._css; });
+    this._ready = 1;
+    if (this.M) this._motionOn(); else this._motionOff();
+  }
+
+  _motionOn() {
+    const E = 'cubic-bezier(.22,1,.36,1)';
+    (this._animEls || []).forEach(el => { el.style.animation = el._css || ''; });
+    this._pending = [];
+    this._q('[data-fade]').forEach(el => {
+      el.style.opacity = '0';
+      this._pending.push({
+        el, frac: .18, fn: () => {
+          const a = el.animate([{ opacity: 0, transform: 'translateY(26px)' }, { opacity: 1, transform: 'translateY(0px)' }],
+            { duration: 720, delay: (+el.dataset.d || 0) * 90, easing: E, fill: 'backwards' });
+          a.onfinish = () => { el.style.opacity = ''; };
+        }
+      });
+    });
+  }
+
+  _motionOff() {
+    this._pending = [];
+    (this._animEls || []).forEach(el => { el.style.animation = 'none'; });
+    this._q('[data-fade]').forEach(el => { el.style.opacity = ''; el.style.transform = ''; });
+    this._q('[data-herotext]').forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
+    this._q('[data-heroglow]').forEach(el => { el.style.transform = ''; });
+    this._q('[data-railtrack]').forEach(el => { el.style.transform = ''; });
+  }
+
+  _loop() {
+    if (this._dead) return;
+    this._rf = requestAnimationFrame(() => this._loop());
+    try { this._frame(); } catch (e) { if (!this._warned) { this._warned = 1; console.warn('frame', e); } }
+  }
+
+  _frame() {
+    const vh = innerHeight, clamp = v => Math.max(0, Math.min(1, v));
+
+    if (this._pending && this._pending.length) {
+      for (let i = this._pending.length - 1; i >= 0; i--) {
+        const p = this._pending[i], r = p.el.getBoundingClientRect();
+        if (r.top < vh * (1 - p.frac * 0.5) && r.bottom > 0) { this._pending.splice(i, 1); p.fn(); }
+      }
+    }
+
+    // nav: translucent over the dark hero, white pill on the canvas
+    const nav = this._nav || (this._nav = document.querySelector('[data-nav]'));
+    const hero = this._heroEl || (this._heroEl = document.querySelector('[data-hero]'));
+    if (nav && hero) {
+      const on = hero.getBoundingClientRect().bottom < 140;
+      if (nav._on !== on) {
+        nav._on = on;
+        nav.style.background = on ? '#ffffff' : 'rgba(255,255,255,.08)';
+        nav.style.boxShadow = on ? '0 0 0 5px #f7f7f7, inset 0 0 0 1px #ececec' : 'inset 0 0 0 1px rgba(255,255,255,.16)';
+        this._q('[data-navtext]').forEach(el => { el.style.color = on ? '#000' : '#fff'; });
+      }
+    }
+
+    if (!this.M) return;
+
+    // hero parallax
+    if (hero) {
+      const r = hero.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < vh) {
+        const p = clamp(-r.top / vh);
+        this._q('[data-heroglow]').forEach((el, i) => {
+          el.style.transform = (i ? '' : 'translateX(-50%) ') + 'translate3d(0,' + (p * (i ? 70 : -50)).toFixed(1) + 'px,0) scale(' + (1 + p * 0.1).toFixed(3) + ')';
+        });
+        const t = hero.querySelector('[data-herotext]');
+        if (t) { t.style.transform = 'translate3d(0,' + (p * 80).toFixed(1) + 'px,0)'; t.style.opacity = (1 - p * 1.1).toFixed(2); }
+      }
+    }
+
+    // flow: scrubbed steps
+    const sc = this._scrub || (this._scrub = document.querySelector('[data-scrub]'));
+    if (sc) {
+      const r = sc.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) {
+        if (!this._steps) {
+          this._steps = this._q('[data-scrub] [data-step]');
+          this._slides = this._q('[data-scrub] [data-slide]');
+          this._dots = this._q('[data-scrub] [data-dot]');
+          this._bar = document.querySelector('[data-scrubbar]');
+          this._count = document.querySelector('[data-scrubcount]');
+        }
+        const n = this._steps.length || 1;
+        const p = clamp(-r.top / (r.height - vh));
+        const idx = Math.min(n - 1, Math.floor(p * n * 0.999));
+        if (this._bar) this._bar.style.width = (((idx + 1) / n) * 100).toFixed(1) + '%';
+        if (this._idx !== idx) {
+          this._idx = idx;
+          this._steps.forEach((el, i) => { el.style.opacity = i === idx ? '1' : '0'; el.style.transform = i === idx ? 'translateY(0px)' : 'translateY(20px)'; });
+          this._slides.forEach((el, i) => { el.style.opacity = i === idx ? '1' : '0'; el.style.transform = i === idx ? 'translateY(0px)' : 'translateY(18px)'; });
+          this._dots.forEach((el, i) => {
+            const on = i === idx;
+            el.style.color = on ? '#000' : '#9b9b9b';
+            el.style.boxShadow = on ? '0 0 0 1px ' + (this._accent || '#007aff') : '0 0 0 1px #ececec';
+          });
+          if (this._count) this._count.textContent = '0' + (idx + 1) + ' / 0' + n;
+        }
+      }
+    }
+
+    // screens: pinned horizontal rail
+    const rail = this._rail || (this._rail = document.querySelector('[data-rail]'));
+    if (rail) {
+      const r = rail.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) {
+        const track = this._track || (this._track = rail.querySelector('[data-railtrack]'));
+        if (track) {
+          const p = clamp(-r.top / (r.height - vh));
+          const max = Math.max(0, track.scrollWidth - innerWidth);
+          track.style.transform = 'translate3d(' + (-p * max).toFixed(1) + 'px,0,0)';
+        }
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
